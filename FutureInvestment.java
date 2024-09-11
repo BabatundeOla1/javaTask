@@ -15,7 +15,7 @@ public class FutureInvestment{
 	System.out.print("Enter number Of years: ");
 	int Years = sc.nextInt(); 
 
-	System.out.printf("%.2f", futureInvestmentValue(investmentAmount,AnnualInterestRate,Years));
+	System.out.print(futureInvestmentValue(investmentAmount,AnnualInterestRate,Years));
 
    }
 
@@ -24,9 +24,13 @@ public class FutureInvestment{
 
 	int totalLoanDuration = Years * 12; 
 
-	double MonthlyInterestRate = AnnualInterestRate / 1200;
+	double AnnualInterestRatePercentage = AnnualInterestRate / 100;
 
-	double futureInvestmentValue = investmentAmount * (1 + MonthlyInterestRate);
+	double MonthlyInterestRate = AnnualInterestRatePercentage / 12;
+
+	double futureInvestmentValueStep1 = 1 + MonthlyInterestRate;
+
+	double futureInvestmentValue = investmentAmount * futureInvestmentValueStep1;
 
 	double TotalFutureInvestment = Math.pow(futureInvestmentValue, totalLoanDuration);
 

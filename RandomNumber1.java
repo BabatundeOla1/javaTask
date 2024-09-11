@@ -1,36 +1,22 @@
-import java.util.Scanner;
-
-import java.util.Random;
-
-public class RandomNumber1{
+public class RandomNumber{
 
    public static void main(String...args){
 
-	Scanner sc = new Scanner(System.in);
-	int randomNumber = rnd.nextInt(10);	
-	int userInput = 0;
+	java.util.Scanner sc = new java.util.Scanner(System.in);
+	
+	System.out.print("Enter your guess: ");
+	int userInput = sc.nextInt();
 
+	int randomNumber = rnd.nextInt(1000);
 
-	do{
-		System.out.print("Make a guess of number: ");
-		userInput = sc.nextInt();
-
-		if(userInput == randomNumber) {System.out.println("WELDONE YOU GUESSED RIGHT!");}
-
-		if(userInput > randomNumber) {System.out.println("NUMBER IS TOO HIGH, TRY AGAIN!");}
-
-		if(userInput < randomNumber) {System.out.println("NUMBER IS TOO LOW, TRY AGAIN!");}
-
+	if(userInput == randomNumber){
+		System.out.println("You guessed right!!");
 	}
 
-	while (userInput != randomNumber);
+	elif(userInput > randomNumber){
+		System.out.println(Too High! TRY AGAIN!!)
+	}
 
-	
-   }
-	
-	public static int generatedRandomNumber(){
-		int newGenerated = rnd.nextInt(10);
-		return newGenerated;
-     }
-
-}
+	else(userInput < randomNumber){
+		System.out.println(Too low! TRY AGAIN!!)
+	}

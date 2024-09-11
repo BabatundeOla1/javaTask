@@ -10,20 +10,16 @@ public class RandomNumber{
 
 	Random rnd = new Random();	
 
-
 	System.out.print("Make a guess of number: ");
 	int userInput = sc.nextInt();
 
-	int randomNumber = rnd.nextInt(10);
+	int randomNumber = rnd.nextInt(1000);
 	
-
 
 	while (userInput != -1 ) {
 
 		
 		int newRandomNumber = rnd.nextInt(10);
-		//System.out.print("Guess what the number is: ");
-
 
 		for (int count = 1; count <= 2; count++) {
 		
@@ -51,8 +47,6 @@ public class RandomNumber{
 		}
 		
 		System.out.print("QUIT!!");
-		//int userInput2 = sc.nextInt();
-
 	}	
 
 	main();
