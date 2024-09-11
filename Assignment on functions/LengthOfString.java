@@ -18,8 +18,6 @@ public class LengthOfString{
 
    public static int countLetters(String letters){
 
-	//int lengthOfLetters 
-
 	return letters.length();
    }
 
