@@ -1,12 +1,5 @@
 public class DescendingNumbers{
 
-   	public static void main(String...args){
-	java.util.Scanner sc = new java.util.Scanner(System.in);
-
-	displaySortedNumbers(sc.nextInt(), sc.nextInt(), sc.nextInt());	
-		
-	}
-
 	public static void displaySortedNumbers(int firstNumber, int secondNumber, int thirdNumber){
 
 		int highestNum = firstNumber;

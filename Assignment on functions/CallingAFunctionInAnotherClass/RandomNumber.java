@@ -31,9 +31,5 @@ public class RandomNumber{
 	if(userInput < randomNumber){
 		System.out.println("Too low! TRY AGAIN!!");
 	}
-	
-	}
-
-
     }
 }
