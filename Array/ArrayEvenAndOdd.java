@@ -6,7 +6,7 @@ public static void main(String...args){
 	
 	for(int count = 0; count < Theezy.length; count++){
 
-		if (Theezy[count] % 2 != 0){
+		if (Theezy[count] % 2 == 0){
 			System.out.println(Theezy[count]);
 		}
 	
