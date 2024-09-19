@@ -13,7 +13,7 @@ public class ArrayScores{
 	
 	}
 
-	for(int count = 0; count < 10; count++){
+	for(int counter = 0; counter < 10; counter++){
 		
 		System.out.print(scores[count]);
 	}
