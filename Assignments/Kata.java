@@ -1,9 +1,7 @@
-import java.util.Scanner;
-
 public class Kata{
 
 	public static void main(String... args) {
-		Scanner scanner = new Scanner(System.in);
+		java.util.Scanner scanner = new java.util.Scanner(System.in);
 	
 		System.out.print("Enter an integer: ");
 		int userInput = scanner.nextInt();
