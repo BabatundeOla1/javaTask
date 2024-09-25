@@ -20,3 +20,6 @@ public class RandomNumber{
 	else(userInput < randomNumber){
 		System.out.println(Too low! TRY AGAIN!!)
 	}
+
+}
+

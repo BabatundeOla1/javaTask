@@ -13,13 +13,15 @@ public class StringParlidrome{
 
 	String [] high = checkWords.Length()-1;
 
-	for(String count = high; count >= 0; count--)
 
-	if(checkWords.charAt(low) == checkWords.charAt(high))
-		System.out.println(checkWords + "is palindrome");
+	while(low < high){
+		if(checkWords.CharAt(low) != checkWords.CharAt(high))
+						
+			System.out.println(checkWords + "is palindrome");
 
 	else
 		System.out.println(checkWords + "is not a palindrome");
 
    }
+}
 }

@@ -22,7 +22,7 @@
 
 
 // A right angle triangle 
-/***public class PatternPractice{
+public class PatternPractice{
 
    public static void main(String...args){
 
@@ -31,8 +31,8 @@
 
 	for(int count = 1; count <= row; count++){
 		
-		for(int counter = 1; counter <= count; counter++){
-			System.out.print("* ");
+		for(int counter = 3; counter <= count; counter++){
+			System.out.print(counter + " ");
 		}
 		System.out.println();
 	}
@@ -40,7 +40,7 @@
 
 }
 
-}***/
+}
 
 
 //Inverted right angle triangle
@@ -66,14 +66,14 @@
 
 
 
-public class PatternPractice{
+/***public class PatternPractice{
 
    public static void main(String...args){
 
 	int row = 10;
 	for(int count = 1; count <= row; count++){
 		
-		for(int counter = 2 * (row - 1); counter >= row; counter--){
+		for(int counter = 2 * (row - 1); counter >= count; counter--){
 			System.out.print(counter + " ");
 		}
 
@@ -86,7 +86,7 @@ public class PatternPractice{
 
 }
 
-}
+}***/
 
 
 

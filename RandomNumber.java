@@ -16,7 +16,7 @@ public class RandomNumber{
 	int randomNumber = rnd.nextInt(1000);
 	
 
-	while (userInput != -1 ) {
+	while (userInput != randomNumber ) {
 
 		
 		int newRandomNumber = rnd.nextInt(10);

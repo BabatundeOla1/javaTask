@@ -10,8 +10,6 @@ public class LargestElement{
    }
 
 
-
-
     public static int getLargest(int [] elements){	
 
 	int largestElement = elements[0];
