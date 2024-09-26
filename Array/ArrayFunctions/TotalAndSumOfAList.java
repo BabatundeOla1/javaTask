@@ -1,74 +1,65 @@
-public class TotalAndSumOfAList{
+ public class TotalAndSumOfAList{
 
     public static void main(String [] args){
 
 	int [] arrayNumber = {3, 2, 5, 1, 4};
 
-	getSumUsingForLoop(arrayNumber);  
 
-	getSumUsingDoWhileLoop(arrayNumber);
+	System.out.print("Do while loop: " + getSumUsingDoWhileLoop(arrayNumber));
+	
+	System.out.println();
 
-	getSumUsingWhileLoop(arrayNumber);
+	System.out.print("Using Foor loop: " + getSumUsingForLoop(arrayNumber));
+
+	System.out.println();
+
+	System.out.print("Using while loop: " + getSumUsingWhileLoop(arrayNumber));
 
     }
 
 
-   public static void getSumUsingForLoop(int [] numbers){
+  public static int getSumUsingForLoop(int [] numbers){
 
 	int totalSum = 0; 
 	
 	for(int count = 0; count < numbers.length; count++){
 		
 		totalSum = totalSum + numbers[count];
-		
-	        System.out.print(totalSum + " ");
-
-	}	
-	
+	}
+	return totalSum;
    }
 
-	
-
-
-
-   public static void getSumUsingDoWhileLoop(int [] number){
+   
+   public static int getSumUsingDoWhileLoop(int [] number){
 	
 	int totalSum = 0;
 	int counts = 0;
-	do{
-	   System.out.print(totalSum + " ");
 
+	do{
 	   totalSum = totalSum + number[counts];
 
 	   counts++;
 	} while (counts < number.length);
-
-
+		
+		return totalSum;
    }
 
    
-
-   public static void getSumUsingWhileLoop(int [] number){
+   public static int getSumUsingWhileLoop(int [] number){
 
 	int totalSum = 0;
 
 	int count = 0;
 
-	while(count < number.length){
+	while(count < number.length-1){
 		count++;
 
 	totalSum = totalSum + number[count];
-
-	 System.out.print(totalSum + " ");
 	
 	}
-
+		return totalSum;
 
 
    }
-
-
-
-
 
 }

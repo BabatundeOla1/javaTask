@@ -5,9 +5,8 @@ public class ReversedNumbers {
 
         int[] reversed = reverseArray(elements);
 
-        for (int count = 0; count < reversed.length; count++) {
-    	int element = reversed[count];
-   	System.out.print(element + " ");
+        for (int count : reversed) {
+   	System.out.print(count + " ");
 
         }
     }
