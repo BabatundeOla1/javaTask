@@ -26,7 +26,9 @@ public class MyBankApp{
    } 
 
 
-   public double checkBalance(){
+   public double checkBalance(double amount){
+
+	balance = 0;
 
 	return balance;
    }

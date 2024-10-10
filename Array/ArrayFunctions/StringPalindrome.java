@@ -3,6 +3,8 @@ public class StringPalindrome{
     public static void main(String [] args){
 
 	String [] words = new String[]{"r", "a", "d", "a", "r"};
+
+
 	System.out.print(getStringRevers(words));
 
     }

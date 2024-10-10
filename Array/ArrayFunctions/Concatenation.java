@@ -1,4 +1,4 @@
-public class Concatenation{
+/*public class Concatenation{
 
     public static void main(String [] args){
 
@@ -22,14 +22,14 @@ public class Concatenation{
 
 	for(int count = 0; count < totalLength; count++){
 	
-		System.out.print(concatenatedLen[count]);*/
+		System.out.print(concatenatedLen[count]);
 	}
 
     }
 
-}
+}*/
 
-/*
+
 public class Concatenation{
 
     public static void main(String [] args){
@@ -62,4 +62,3 @@ public class Concatenation{
     }
 
 }
-*/

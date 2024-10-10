@@ -9,6 +9,8 @@ public class StringPalindrome12{
             System.out.print("It is not a palindrome");
     }
 
+
+
     public static boolean getPalindrome(String[] letters) {
         int start = 0;
         int end = letters.length - 1;
