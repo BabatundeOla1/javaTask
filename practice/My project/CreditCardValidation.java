@@ -5,20 +5,23 @@ public class CreditCardValidation{
    java.util.Scanner sc = new java.util.Scanner(System.in);
 	
 	System.out.print("Enter Card Number: ");
-	String cardNumber = sc.nextLine();
+	String userCard = sc.nextLine();
 
-	String card = validateCard(cardNumber);
+	checkValidity(userCard);
+
+	/*String card = validateCard(userCard);
 
 	System.out.println("*************************");
 	System.out.println("Card Number: " +  cardNumber);
 	System.out.println("Card Type: " + card);
 	System.out.print("*************************");
+	*/
    
-   } 
+   }
 
    
 
-   public static String validateCard(String theNumber){
+   /*public static String validateCard(String theNumber){
 
 	if(theNumber.startsWith("4")){
 		return "This is Visa Card.";
@@ -38,41 +41,27 @@ public class CreditCardValidation{
 
 	else 
 		return "Invalid Card.";
+   }*/
+
+
+
+   public static void checkValidity(String cardNumber){
+
+	int [] newCard =new int[cardNumber];
+	
+	
+
+	for(int count = newCard.length() - 1; count >= 0; count -= 2){
+
+		System.out.print(newCard[count]);
+
+	}
+
    }
 
 
-
-/*public static int checkValidity(int cardNumber){
-	
-	int reverseCount = 0;
-
-	int firstNumber ;
-
-	int secondNumber ;
-
-	int sum = 0;
-
-	for(int count = 0; count < cardNumber.length-1; count += 2){
-		
-		reverseCount = count * 2;
-
-		if(reverseCount > 9){
-
-			firstNumber = reverseCount / 10;
-
-			secondNumber = reverseCount % 10;
-
-			sum = firstNumber + secondNumber;
-
-		}
-
-	}
-	
-	
-
-
-  }*/
-
-
 }
+
+
+
 
