@@ -7,32 +7,34 @@ public class CreditCardValidation{
 	System.out.print("Enter Card Number: ");
 	String userCard = sc.nextLine();
 
-	checkValidity(userCard);
+	//checkValidity(userCard);
 
-	/*String card = validateCard(userCard);
+	String card = validateCard(userCard);
 
 	System.out.println("*************************");
-	System.out.println("Card Number: " +  cardNumber);
+
+	System.out.println("Card Number: " +  userCard);
+
 	System.out.println("Card Type: " + card);
+
 	System.out.print("*************************");
-	*/
    
    }
 
    
 
-   /*public static String validateCard(String theNumber){
+   public static String validateCard(String theNumber){
 
 	if(theNumber.startsWith("4")){
-		return "This is Visa Card.";
+		return "Visa Card.";
 	}
 
 	else if(theNumber.startsWith("5")){
-		return "This is Master Card.";
+		return "Master Card.";
 	}
 
 	else if(theNumber.startsWith("6")){
-		return "This is Discover Credit Card.";
+		return "Discover Credit Card.";
 	}
 
 	else if(theNumber.startsWith("3")){
@@ -41,19 +43,42 @@ public class CreditCardValidation{
 
 	else 
 		return "Invalid Card.";
-   }*/
+   }
 
 
 
    public static void checkValidity(String cardNumber){
 
-	int [] newCard =new int[cardNumber];
-	
-	
+	int size = cardNumber.length();
 
-	for(int count = newCard.length() - 1; count >= 0; count -= 2){
+	char [] newCardNumber = cardNumber.toCharArray();
+	
+	int multiple;
 
-		System.out.print(newCard[count]);
+	int firstNumber;
+
+	int secondNumber;
+
+	int sum = 0;
+
+	for(int count = newCardNumber.length-1; count > 0; count -= 2){
+
+		int number = Character.getNumericValue(newCardNumber[count]);
+
+		multiple = number * 2;
+		
+		if(multiple > 9){
+			
+			firstNumber = multiple / 10;
+
+			secondNumber = multiple % 10;
+			
+			sum = firstNumber + secondNumber;
+		
+			System.out.print(sum);
+		}
+
+		
 
 	}
 

@@ -13,18 +13,18 @@ public class DuplicateWords{
 
 	int len = input.length;
 	
-	int occurance;
+	int occur;
 
 	for(int index = 0; index < len; index++){
-		occurance = 1;
+		occur = 1;
 
 		for(int element = index + 1; element < input.length; element++){
 			if(input[index] == input[element]){
-				occurance ++;
+				occur ++;
 			}		
 		}
 
-		if(occurance > 1){	
+		if(occur > 1){	
 			System.out.print(input[index] + " ");
 		}
 	}
