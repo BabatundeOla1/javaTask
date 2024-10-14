@@ -12,8 +12,7 @@ public class MyBankApp{
 
    }
 
-    
-
+ 
    public void makewithdrawal(double amount){
 
 	if(amount <= balance){
@@ -37,3 +36,4 @@ public class MyBankApp{
 
 
 }
+

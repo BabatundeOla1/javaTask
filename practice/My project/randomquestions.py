@@ -37,3 +37,8 @@ for questions in range(userinput):
 print(f"Total Time used on test:  {total_time_used:,.2f}seconds")
 print("Correct answers: ", correct_answer)
 print("Wrong answers: ", wrong_answer)
+
+
+
+
+

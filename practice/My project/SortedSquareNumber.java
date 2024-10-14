@@ -4,38 +4,39 @@ public class SortedSquareNumber{
 
    public static void main(String [] args){
 
-	int [] numbers = {3,1,2,7,4,6,5};
+	int [] numbers = {3,4,2,7,4,6,5};
 
 	int [] squareNum = getSquare(numbers);
+
+	getSortedNumbers(squareNum);
 	
 
 	System.out.print(Arrays.toString(squareNum));
 	
    }
 
+   public static void getSortedNumbers(int [] listOfNumber){
 
-   public static void getsortNumbers(int [] array){
-
-	int lengthOfArray = array.length;
+	int lengthOfArray = listOfNumber.length;
 
 	for(int index = 0; index < lengthOfArray; index++){
 		
 		for(int counter = 1; counter < lengthOfArray; counter++){
 
- 			if(array[counter - 1] > array[counter]){
+ 			if(listOfNumber[counter - 1] > listOfNumber[counter]){
 
-				int temp =  array[counter - 1];
+				int temp =  listOfNumber[counter - 1];
 
-				array[counter - 1] = array[counter];
+				listOfNumber[counter - 1] = listOfNumber[counter];
 
-				array[counter] = temp;
+				listOfNumber[counter] = temp;
 			}
 		}
 	}
 
 	for(int print = 0; print < lengthOfArray; print++)
 
-		System.out.print(array[print]);
+		System.out.print(listOfNumber[print]);
 	
    }
 

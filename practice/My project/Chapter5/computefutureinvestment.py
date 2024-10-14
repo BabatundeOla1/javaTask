@@ -25,5 +25,3 @@ for year in range(1, year + 1):
 
 
 
-
-
