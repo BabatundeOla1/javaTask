@@ -7,9 +7,9 @@ public class CreditCardValidation{
 	System.out.print("Enter Card Number: ");
 	String userCard = sc.nextLine();
 
-	//checkValidity(userCard);
+	checkValidity(userCard);
 
-	String card = validateCard(userCard);
+	/*String card = validateCard(userCard);
 
 	System.out.println("*************************");
 
@@ -17,13 +17,13 @@ public class CreditCardValidation{
 
 	System.out.println("Card Type: " + card);
 
-	System.out.print("*************************");
+	System.out.print("*************************");*/
    
    }
 
    
 
-   public static String validateCard(String theNumber){
+   /*public static String validateCard(String theNumber){
 
 	if(theNumber.startsWith("4")){
 		return "Visa Card.";
@@ -43,13 +43,23 @@ public class CreditCardValidation{
 
 	else 
 		return "Invalid Card.";
-   }
+   }*/
 
 
 
    public static void checkValidity(String cardNumber){
 
-	int size = cardNumber.length();
+	char [] newCardNumber = cardNumber.toCharArray();
+
+	int numbers = Character.getNumericValue(newCardNumber);
+
+	System.out.print(numbers);
+   }
+
+
+}
+
+/*int size = cardNumber.length();
 
 	char [] newCardNumber = cardNumber.toCharArray();
 	
@@ -80,13 +90,6 @@ public class CreditCardValidation{
 
 		
 
-	}
-
-   }
-
-
-}
-
-
+	}*/
 
 

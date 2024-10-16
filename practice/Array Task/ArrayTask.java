@@ -139,6 +139,30 @@
 
 //7. write  a function that test whether a string is a palindrome.
 
+/*public class ArrayTask{
+
+   public static void main(String [] args){
+
+	String [] array = {"m", "a", "l", "l", "a", "m"};
+	getPalindrome(array);
+   }
+
+   public static void getPalindrome(String [] list){
+
+	String reverse = "";
+
+	for(int count = list.length-1; count >= 0; count--){
+	
+		reverse = list[count];
+
+		if(list.equals(reverse)){
+			System.out.print("it is palindrome");
+		}
+	}	
+   }
+
+}*/
+
 public class ArrayTask{
 
    public static void main(String [] args){
@@ -162,6 +186,8 @@ public class ArrayTask{
    }
 
 }
+
+
 
 
 

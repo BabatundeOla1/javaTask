@@ -26,7 +26,7 @@ for questions in range(userinput):
 
 	if answer == right_answer:
 		correct_answer += 1
-		print("You  are correct. The answer is = ", right_answer)
+		print("You  are correct.")
 
 	if answer != right_answer:
 		wrong_answer += 1

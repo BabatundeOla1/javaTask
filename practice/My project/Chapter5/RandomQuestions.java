@@ -15,7 +15,7 @@ public class RandomQuestions{
 	System.out.print("How many questions do you want to answer? ");
 	int QUESTION_TO_ASK = sc.nextInt();
 
-	for(int question = 1; question <= QUESTION_TO_ASK; question++){
+	for(int question = 0; question <= QUESTION_TO_ASK; question++){
 
 		int questionNumber1 = (int)(Math.random() * 100);
 		int questionNumber2 = (int)(Math.random() * 100);
@@ -25,14 +25,13 @@ public class RandomQuestions{
 			questionNumber1 = questionNumber2;
 			questionNumber2 = swap;
 
-			System.out.print("Answer This question" + ">>> " + questionNumber2 + " + " + questionNumber1 + " : ");
+			System.out.print("Answer This question" + ">>> " + questionNumber2 + " - " + questionNumber1 + " : ");
 			int userinput = sc.nextInt();
 
-			int answer = questionNumber2 + questionNumber1;
+			int answer = questionNumber2 - questionNumber1;
 
 			long endTime = System.currentTimeMillis()/1000;
 			long testTime = endTime - startTime;
-
 				totalTestTime += testTime;
 			
 			if(userinput == answer){

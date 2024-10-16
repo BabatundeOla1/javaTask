@@ -13,22 +13,16 @@ public class StringPalindrome1{
 	String reverse = "";
 
 	for(int count = letters.length-1; count >= 0; count--){
-	
 		reverse = letters[count];
-	
 		System.out.print(reverse + " ");
 	}
+    }
+}
 
-	/***System.out.println();
-
-	if(letters.equals(reverse)){
+/***if(letters.equals(reverse)){
 		System.out.println("it is a parlindrome");
 	}
 
 	else {
 		System.out.println("it is not a parlindrome");
-	}***/
-
-    }
-
-}
+}***/
