@@ -2,94 +2,97 @@ public class CreditCardValidation{
 
    public static void main(String [] args){
 
-   java.util.Scanner sc = new java.util.Scanner(System.in);
+   //java.util.Scanner sc = new java.util.Scanner(System.in);
 	
-	System.out.print("Enter Card Number: ");
-	String userCard = sc.nextLine();
+	//System.out.print("Enter Card Number: ");
+	//String userCard = sc.nextLine();
 
-	checkValidity(userCard);
+	String userCard = "5199110824684028";
+	
+	System.out.println(" ");
 
-	/*String card = validateCard(userCard);
+	System.out.println("************************************");
 
-	System.out.println("*************************");
+	System.out.println("Credit Card Type: " + validateCard(userCard));
+	System.out.println("Credit Card Number: " +  userCard);
+	System.out.println("Credit Card Digit Length: " +  userCard.length());
+	System.out.println("Card Type: " + checkValidity(userCard));
 
-	System.out.println("Card Number: " +  userCard);
-
-	System.out.println("Card Type: " + card);
-
-	System.out.print("*************************");*/
+	System.out.print("************************************");
    
    }
 
-   
 
-   /*public static String validateCard(String theNumber){
+  public static String validateCard(String theNumber){
 
 	if(theNumber.startsWith("4")){
-		return "Visa Card.";
+		return "VisaCard";
 	}
 
 	else if(theNumber.startsWith("5")){
-		return "Master Card.";
+		return "MasterCard";
 	}
 
 	else if(theNumber.startsWith("6")){
-		return "Discover Credit Card.";
+		return "Discover Credit Card";
 	}
 
-	else if(theNumber.startsWith("3")){
-		return "This is America Express.";
+	else if(theNumber.startsWith("37")){
+		return "This is America Express";
 	}
 
 	else 
 		return "Invalid Card.";
-   }*/
-
-
-
-   public static void checkValidity(String cardNumber){
-
-	char [] newCardNumber = cardNumber.toCharArray();
-
-	int numbers = Character.getNumericValue(newCardNumber);
-
-	System.out.print(numbers);
    }
 
 
-}
+   public static String checkValidity(String cardNumber){
 
-/*int size = cardNumber.length();
+	int size = cardNumber.length();
 
-	char [] newCardNumber = cardNumber.toCharArray();
+	int [] newCardNumber = new int[size];
+
+	int totalSumOdd = 0;
+
+	int totalSumEven = 0;
 	
-	int multiple;
+	int allSum = 0;
 
-	int firstNumber;
+	for(int index = size -1 ; index >= 0; index -= 2){
 
-	int secondNumber;
-
-	int sum = 0;
-
-	for(int count = newCardNumber.length-1; count > 0; count -= 2){
-
-		int number = Character.getNumericValue(newCardNumber[count]);
-
-		multiple = number * 2;
+		newCardNumber[index] = Character.getNumericValue(cardNumber.charAt(index));
+		int multiple = newCardNumber[index] * 2;
 		
+		newCardNumber[index] = multiple;
+		
+
 		if(multiple > 9){
-			
-			firstNumber = multiple / 10;
+			int firstNumber = multiple / 10 % 10; 
+			int secondNumber = multiple % 10; 
 
-			secondNumber = multiple % 10;
-			
-			sum = firstNumber + secondNumber;
-		
-			System.out.print(sum);
+			int sum = firstNumber + secondNumber;
+			newCardNumber[index]= sum;
 		}
 
-		
+		totalSumEven += newCardNumber[index];	
+	}
 
-	}*/
+	for(int count = 0; count < newCardNumber.length; count++){
+
+		if(count % 2 == 1){
+			totalSumOdd += newCardNumber[count];
+		}	
+	}
+		allSum = totalSumEven + totalSumOdd;
+
+		if(allSum % 10 == 0){
+			return "Valid";
+		}
+
+		else{
+			return "Invalid";
+		}
+   }
+}
 
 
