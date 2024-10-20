@@ -2,12 +2,10 @@ public class CreditCardValidation{
 
    public static void main(String [] args){
 
-   //java.util.Scanner sc = new java.util.Scanner(System.in);
+   java.util.Scanner sc = new java.util.Scanner(System.in);
 	
-	//System.out.print("Enter Card Number: ");
-	//String userCard = sc.nextLine();
-
-	String userCard = "5199110824684028";
+	System.out.print("Enter Card Number: ");
+	String userCard = sc.nextLine();
 	
 	System.out.println(" ");
 
@@ -38,61 +36,43 @@ public class CreditCardValidation{
 	}
 
 	else if(theNumber.startsWith("37")){
-		return "This is America Express";
+		return "America Express";
 	}
 
 	else 
-		return "Invalid Card.";
+		return "Invalid Card";
    }
 
 
    public static String checkValidity(String cardNumber){
 
+	int sumOdd = 0, sumEven = 0, totalSum = 0;
+	
 	int size = cardNumber.length();
 
-	int [] newCardNumber = new int[size];
+        int[] cardDigits = new int[size];
 
-	int totalSumOdd = 0;
+        for (int index = size - 1; index >= 0; index--) {
 
-	int totalSumEven = 0;
-	
-	int allSum = 0;
+            cardDigits[index] = Character.getNumericValue(cardNumber.charAt(index));
 
-	for(int index = size -1 ; index >= 0; index -= 2){
+            if ((size - index) % 2 == 0) {
 
-		newCardNumber[index] = Character.getNumericValue(cardNumber.charAt(index));
-		int multiple = newCardNumber[index] * 2;
-		
-		newCardNumber[index] = multiple;
-		
+                int doubled = cardDigits[index] * 2;
 
-		if(multiple > 9){
-			int firstNumber = multiple / 10 % 10; 
-			int secondNumber = multiple % 10; 
+                if (doubled > 9) {
 
-			int sum = firstNumber + secondNumber;
-			newCardNumber[index]= sum;
-		}
+                    doubled = (doubled / 10) + (doubled % 10);
+                }
+                sumEven += doubled;		
+            } 
+		else {
+              		sumOdd += cardDigits[index];
+            	}
+        }
 
-		totalSumEven += newCardNumber[index];	
-	}
+        totalSum = sumEven + sumOdd;
 
-	for(int count = 0; count < newCardNumber.length; count++){
-
-		if(count % 2 == 1){
-			totalSumOdd += newCardNumber[count];
-		}	
-	}
-		allSum = totalSumEven + totalSumOdd;
-
-		if(allSum % 10 == 0){
-			return "Valid";
-		}
-
-		else{
-			return "Invalid";
-		}
+        return (totalSum % 10 == 0) ? "Valid" : "Invalid";
    }
 }
-
-
