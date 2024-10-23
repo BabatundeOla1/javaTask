@@ -17,9 +17,8 @@ public class MensturationApp{
 	int lastPeriodLength = sc.nextInt();
 
 	LocalDate theDateOfPreviousPeriod = LocalDate.parse(FirstDayOflastPeriod);
-	LocalDate nextPeriodDate = theDateOfPreviousPeriod.plusDays(lastPeriodLength);
 
-
+	LocalDate nextPeriodDate = getNextPeriodDate(theDateOfPreviousPeriod, lastPeriodLength);
 	LocalDate OvulationDate = getOvulationDate(nextPeriodDate, lastPeriodLength);
 	LocalDate DaysOfBleeding = getDaysOfBleeding(nextPeriodDate, periodDays);
 
@@ -28,6 +27,11 @@ public class MensturationApp{
 	System.out.println("Your next period Days: " + nextPeriodDate + " - " + DaysOfBleeding);
 	System.out.println("Your next Ovulation Date: " + OvulationDate);	
 	   
+   }
+
+   public static LocalDate getNextPeriodDate(LocalDate theDateOfPreviousPeriod, int lastPeriodLength){
+	return theDateOfPreviousPeriod.plusDays(lastPeriodLength);
+
    }
 
    public static LocalDate getOvulationDate(LocalDate nextPeriodDate, int lastPeriodLength){
