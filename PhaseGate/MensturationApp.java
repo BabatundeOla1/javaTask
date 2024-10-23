@@ -10,25 +10,33 @@ public class MensturationApp{
 	System.out.print("Enter the first day of your last period in this format (yyyy-mm-dd): ");
 	String FirstDayOflastPeriod = sc.nextLine();
 
+	System.out.print("How Long did it last? ");
+	int periodDays = sc.nextInt();
+
 	System.out.print("Enter previous period length: ");
 	int lastPeriodLength = sc.nextInt();
 
 	LocalDate theDateOfPreviousPeriod = LocalDate.parse(FirstDayOflastPeriod);
 	LocalDate nextPeriodDate = theDateOfPreviousPeriod.plusDays(lastPeriodLength);
+
+
 	LocalDate OvulationDate = getOvulationDate(nextPeriodDate, lastPeriodLength);
+	LocalDate DaysOfBleeding = getDaysOfBleeding(nextPeriodDate, periodDays);
+
 	
 	System.out.println("Your next period is: " + nextPeriodDate);
-	System.out.print("Your next Ovulation Date: " + OvulationDate);
+	System.out.println("Your next period Days: " + nextPeriodDate + " - " + DaysOfBleeding);
+	System.out.println("Your next Ovulation Date: " + OvulationDate);	
 	   
    }
 
    public static LocalDate getOvulationDate(LocalDate nextPeriodDate, int lastPeriodLength){
-	return nextDay.plusDays(lastPeriodLength/2);
+	return nextPeriodDate.plusDays(lastPeriodLength/2);
 
    }
 
-   public static LocalDate getSafeDate(LocalDate nextDay, int lastPeriodLength){
-	return nextDay.plusDays(lastPeriodLength/2);
+   public static LocalDate getDaysOfBleeding(LocalDate nextDay, int periodDays){
+	return nextDay.plusDays(periodDays);
 
    }
 
