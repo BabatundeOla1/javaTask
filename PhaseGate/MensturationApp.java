@@ -10,10 +10,10 @@ public class MensturationApp{
 	System.out.print("Enter the first day of your last period in this format (yyyy-mm-dd): ");
 	String FirstDayOflastPeriod = sc.nextLine();
 
-	System.out.print("How Long did it last? ");
+	System.out.print("How Long did flow period last? ");
 	int periodDays = sc.nextInt();
 
-	System.out.print("Enter previous period length: ");
+	System.out.print("Enter previous cycle length: ");
 	int lastPeriodLength = sc.nextInt();
 
 	LocalDate theDateOfPreviousPeriod = LocalDate.parse(FirstDayOflastPeriod);
