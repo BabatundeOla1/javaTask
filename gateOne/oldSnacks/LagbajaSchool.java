@@ -16,17 +16,18 @@ public class LagbajaSchool{
 	System.out.println("Saving >>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 	System.out.println("Saved Successfully");
 
+	System.out.println();
+
 	getStudentScoresAndGrade(numberOfStudents, numberOfSubjects);
 
   }
 
    public static void getStudentScoresAndGrade(int numberOfStudents, int numberOfSubjects){
-
-	int sumOfScores = 0;
 	
 	int [][] studentsGrades = new int[numberOfStudents][numberOfSubjects];
 
-	Scanner sc = new Scanner(System.in);	
+	Scanner sc = new Scanner(System.in);
+	
 	for(int scores = 0; scores < numberOfStudents; scores++){
 		
 		for(int subjects = 0; subjects < numberOfSubjects; subjects++){
@@ -47,38 +48,63 @@ public class LagbajaSchool{
 	System.out.println("====================================================================");
 	System.out.print("STUDENT" + "\t\t");
 
-	for(int sub = 1; sub <= studentsGrades.length; sub++){
+	for(int sub = 1; sub <= numberOfSubjects; sub++){
 		System.out.print("SUB" + sub + "\t");
 	}
-	
-	System.out.print("TOT\tAVE\tPOS");
-	
-	System.out.println();
 
+	System.out.print("TOT\tAVE\tPOS");
+	System.out.println();
 	System.out.println("====================================================================");
 
+	double [] getAverage = new double[numberOfStudents];
 
 	for(int index = 0; index < studentsGrades.length; index++){
-		
-		int sum = 0;
-		double average = 0;		
 
+		int sum = 0, position = 0;	
+		double average = 0;
+		double roundOff = 0;
 		System.out.print("Student" + (index + 1));
 
 		for(int elements = 0; elements < studentsGrades[index].length; elements++){
 
 			sum += studentsGrades[index][elements];
-			average = sum / studentsGrades.length;
+			average = (double)sum / numberOfSubjects;
+			roundOff = Math.round(average*100)/100.00;
+			getAverage[index] = roundOff;
+			
 
 			System.out.print(" \t " + studentsGrades[index][elements]);
-			
 		}
 			System.out.print("\t" + sum);
-			System.out.print("\t" + average);
+			System.out.print("\t" + roundOff);
+			System.out.print("\t" + position);
 			System.out.println();
 	}
 
 	System.out.println("====================================================================");
+
+	System.out.println("====================================================================");
+
+		System.out.print(Arrays.toString(getAverage));
+		System.out.println();
+
+	for(int count = 0; count < getAverage.length; count++){
+		for(int counter = 1; counter < getAverage.length; counter++){
+
+			if(getAverage[counter - 1] < getAverage[counter]){
+
+				double temp =  getAverage[counter - 1];
+				getAverage[counter - 1] = getAverage[counter];
+				getAverage[counter] = temp;
+			}
+		}
+	}
+
+
+	for(int print = 0; print < getAverage.length; print++){
+		System.out.print(getAverage[print] + " ");
+	}
+
 
    }
 

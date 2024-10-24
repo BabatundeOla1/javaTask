@@ -28,15 +28,15 @@ public class LagbajaSchool{
 
 	Scanner sc = new Scanner(System.in);
 	
-	for(int scores = 0; scores < numberOfStudents; scores++){
+	for(int students = 0; students < numberOfStudents; students++){
 		
 		for(int subjects = 0; subjects < numberOfSubjects; subjects++){
 
-			System.out.println("Entering Score for student" + " " + scores + ".");
-			System.out.println("Enter score for subject" + subjects + ": ");
+			System.out.println("Entering Score for student" + " " + (students + 1) + ".");
+			System.out.println("Enter score for subject" + (subjects + 1) + ": ");
 			int studentSubjects = sc.nextInt();
 
-			studentsGrades[scores][subjects] = studentSubjects;
+			studentsGrades[students][subjects] = studentSubjects;
 
 			if(studentSubjects < 0 || studentSubjects > 100){
 				System.out.println("Invalid Input, Enter score again");
@@ -45,7 +45,7 @@ public class LagbajaSchool{
 		}
 	}
 
-	System.out.println("====================================================================");
+	System.out.println("=========================================================================");
 	System.out.print("STUDENT" + "\t\t");
 
 	for(int sub = 1; sub <= numberOfSubjects; sub++){
@@ -54,45 +54,66 @@ public class LagbajaSchool{
 
 	System.out.print("TOT\tAVE\tPOS");
 	System.out.println();
-	System.out.println("====================================================================");
+	System.out.println("=========================================================================");
+
+	double [] getAverage = new double[numberOfStudents];
+	int [] totalSum = new int[numberOfSubjects];
 
 	for(int index = 0; index < studentsGrades.length; index++){
 
-		int[] sum = new int[numberOfStudents];	
-		double[] average = new double[numberOfStudents];
+		
+		int sum = 0;	
+
+		double average = 0, roundOff = 0;
+		
 
 		System.out.print("Student" + (index + 1));
 
 		for(int elements = 0; elements < studentsGrades[index].length; elements++){
 
 			sum += studentsGrades[index][elements];
-			average = (double)sum / studentsGrades.length;
+			totalSum[index] = sum;
 
-			average[elemens] = average;
-			System.out.print(Arrays.deepToString(average[elements]));	
+			average = (double)sum / numberOfSubjects;
+			roundOff = Math.round(average*100)/100.00;
+
+			getAverage[index] = roundOff;
 
 			System.out.print(" \t " + studentsGrades[index][elements]);
-
 		}
 
-
-		int [] getAverage = new int[average];
-		for(int i = 0; i < getAverage.length; i++){
-			System.out.println(getAverage[i]);
-
-		}
-
-
-
+				
 			System.out.print("\t" + sum);
-			System.out.print("\t" + average);
-			//System.out.print("\t" + position);
+			System.out.print("\t" + roundOff);
+			
 			System.out.println();
 	}
 
-	System.out.println("====================================================================");
+	System.out.println("=========================================================================");
+	
+	System.out.println("=========================================================================");
+			System.out.print(Arrays.toString(getAverage));
+				System.out.println();
 
-	System.out.println("====================================================================");
+		for(int count = 0; count < getAverage.length; count++){		
+
+			for(int counter = 1; counter < getAverage.length; counter++){
+
+				if(getAverage[counter - 1] < getAverage[counter]){
+
+					double temp =  getAverage[count];
+					getAverage[count] = getAverage[counter];
+					getAverage[counter] = temp;
+				}
+			}
+		}
+
+		for(int print = 0; print < getAverage.length; print++){
+
+			System.out.print(getAverage[print] + " ");
+
+		}
    }
 
-}
+  }
+
