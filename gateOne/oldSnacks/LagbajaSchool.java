@@ -32,8 +32,8 @@ public class LagbajaSchool{
 		
 		for(int subjects = 0; subjects < numberOfSubjects; subjects++){
 
-			System.out.println("Entering Score for student" + " " + scores + ".");
-			System.out.println("Enter score for subject" + subjects + ": ");
+			System.out.println("Entering Score for student" + " " + (scores + 1) + ".");
+			System.out.println("Enter score for subject" + (subjects + 1) + ": ");
 			int studentSubjects = sc.nextInt();
 
 			studentsGrades[scores][subjects] = studentSubjects;
@@ -88,24 +88,24 @@ public class LagbajaSchool{
 		System.out.print(Arrays.toString(getAverage));
 		System.out.println();
 
-	for(int count = 0; count < getAverage.length; count++){
-		for(int counter = 1; counter < getAverage.length; counter++){
+		for(int count = 0; count < getAverage.length; count++){		
 
-			if(getAverage[counter - 1] < getAverage[counter]){
+			for(int counter = 1; counter < getAverage.length; counter++){
 
-				double temp =  getAverage[counter - 1];
-				getAverage[counter - 1] = getAverage[counter];
-				getAverage[counter] = temp;
+				if(getAverage[counter - 1] > getAverage[counter]){
+
+					double temp =  getAverage[counter - 1];
+					getAverage[counter - 1] = getAverage[counter];
+					getAverage[counter] = temp;
+				}
 			}
 		}
-	}
 
+		for(int print = 0; print < getAverage.length; print++){
 
-	for(int print = 0; print < getAverage.length; print++){
-		System.out.print(getAverage[print] + " ");
-	}
+			System.out.print(getAverage[print] + " ");
 
-
+		}
    }
 
 }
