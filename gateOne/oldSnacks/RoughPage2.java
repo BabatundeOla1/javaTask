@@ -8,11 +8,11 @@ public class MibtTest{
 	System.out.print("What is your name? ");
 	String name = sc.nextLine();
 
-	personalityQuestionsExtrovertIntrovert(name);
-	personalityQuestionsSensingAndIntuitive(name);
-	personalityQuestionsThinkingAndFeeling(name);
-	personalityQuestionsJudgingAndPerceptive(name);
-
+	String a = personalityQuestionsExtrovertIntrovert(name);
+	String b = personalityQuestionsSensingAndIntuitive(name);
+	String c = personalityQuestionsThinkingAndFeeling(name);
+	String d = personalityQuestionsJudgingAndPerceptive(name);
+	
    }
 
    public static void personalityQuestionsExtrovertIntrovert(String name){
@@ -70,12 +70,15 @@ public class MibtTest{
 	System.out.println("Number of A selected: " + totalAnswerA);
 	System.out.println("Number of B selected: " + totalAnswerB);
 
-
+	if(totalAnswerA > 2){
+		System.out.println("E");
+	}
+	else{
+		System.out.println("I");
+	}
    }
 
-
-
-    public static void personalityQuestionsSensingAndIntuitive(String name){
+  public static void personalityQuestionsSensingAndIntuitive(String name){
 
 	String [][] sensingAndIntuitive = {{"A: Interpret literally", "B: look for meaning and possibilities", " "}, 
 						{"A: practical, realistic, experimental", "B: imaginative, innovative, theoretical", " "}, 
@@ -129,6 +132,13 @@ public class MibtTest{
 	
 	System.out.println("Number of A selected: " + totalAnswerA);
 	System.out.println("Number of B selected: " + totalAnswerB);
+
+	if(totalAnswerA > 2){
+		System.out.println("S");
+	}
+	else{
+		System.out.println("N");
+	}
 
       }
 
@@ -188,6 +198,13 @@ public class MibtTest{
 	System.out.println("Number of A selected: " + totalAnswerA);
 	System.out.println("Number of B selected: " + totalAnswerB);
 
+	if(totalAnswerA > 2){
+		System.out.println("T");
+	}
+	else{
+		System.out.println("F");
+	}
+
    }
 
 
@@ -245,8 +262,12 @@ public class MibtTest{
 	System.out.println("Number of A selected: " + totalAnswerA);
 	System.out.println("Number of B selected: " + totalAnswerB);
 
-
-	
+	if(totalAnswerA > 2){
+		System.out.println("J");
+	}
+	else{
+		System.out.println("P");
+	}
    }
 
 }

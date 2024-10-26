@@ -24,6 +24,8 @@ public class LagbajaSchool{
 
   }
 
+
+
    public static void getStudentScoresAndGrade(int numberOfStudents, int numberOfSubjects){
 	
 	int [][] studentsGrades = new int[numberOfStudents][numberOfSubjects];
@@ -47,6 +49,9 @@ public class LagbajaSchool{
 		}
 	}
 
+
+
+
 	System.out.println("====================================================================");
 	System.out.print("STUDENT" + "\t\t");
 
@@ -57,6 +62,9 @@ public class LagbajaSchool{
 	System.out.print("TOT\tAVE\tPOS");
 	System.out.println();
 	System.out.println("====================================================================");
+
+
+
 
 	int [] getThePosition = new int[numberOfStudents];
 
@@ -70,37 +78,47 @@ public class LagbajaSchool{
 		for(int elements = 0; elements < studentsGrades[index].length; elements++){
 
 			sum += studentsGrades[index][elements];
+
 			average = (double)sum / numberOfSubjects;
+
 			roundOff = Math.round(average*100)/100.00;
+
 			getThePosition[index] = (int)average;
 			
 			System.out.print(" \t " + studentsGrades[index][elements]);
 		}
 		
-		int position = 1;
-		
-		for(int count = 0; count < getThePosition.length; count++){		
-			position = 1;
-			
-			for(int counter = 0; counter < getThePosition.length - 1; counter++){
+		int[] position = new int[numberOfStudents];
 
-				if(getThePosition[count] < getThePosition[counter + 1]){
-						position++;
-				}
+		for(int count = 0; count < getThePosition.length; count++){
+			
+			position = 1;
+
+			for(int counter = 1; counter < getThePosition.length; counter++){
+				if(getThePosition[count] < getThePosition[counter])
+					position++;
 			}
+
+			
+			System.out.print("\t" + position[count]);
 		}
+		
 			System.out.print("\t" + sum);
 			System.out.print("\t" + roundOff);
 			System.out.print("\t" + position);
 			System.out.println();
 	}
 	System.out.println("====================================================================");
-
 	System.out.println("====================================================================");
 
 		System.out.println();
 
+
+
+
+
 		System.out.println("STUDENT SUMMARY\n");
+	int studentScores = 0;
 	for(int subjects = 0; subjects < numberOfSubjects; subjects++){
 
 		int sumOfAllScoreInASubject = 0;
@@ -117,13 +135,17 @@ public class LagbajaSchool{
 
 		int fails = 0;
 
-		for(int studentScores = 0; studentScores < numberOfStudents; studentScores++){
+		for(studentScores = 0; studentScores < numberOfStudents; studentScores++){
 
 			sumOfAllScoreInASubject += studentsGrades[studentScores][subjects];
 
-			highestScorePerSubject = Math.max(highestScorePerSubject, studentsGrades[studentScores][subjects]);
+			if(studentsGrades[studentScores][subjects] > highestScorePerSubject){
+				highestScorePerSubject = studentsGrades[studentScores][subjects];
+			}
 
-			lowestScorePerSubject = Math.min(lowestScorePerSubject, studentsGrades[studentScores][subjects]);
+			if(studentsGrades[studentScores][subjects] < lowestScorePerSubject){
+				lowestScorePerSubject = studentsGrades[studentScores][subjects];
+			}
 
 			averageScorePerSubject = (double)sumOfAllScoreInASubject / numberOfStudents;
 
@@ -138,14 +160,20 @@ public class LagbajaSchool{
 			}	
 		}
 			System.out.println("SUBJECT " + (subjects + 1));
-			System.out.println("Highest Scoring Student is:  "  + "Student " + subjects + "Scoring " + highestScorePerSubject);
-			System.out.println("Lowest Scoring Student is:  " + "Student " + subjects + "Scoring " + lowestScorePerSubject);
-			System.out.println("Average Score is:  " + roundOffAverageScorePerSubject);
+			System.out.println("Highest Scoring Student is:  "  + " Student " + studentScores + " Scoring " + highestScorePerSubject);
+			System.out.println("Lowest Scoring Student is:  " + " Student " + studentScores + " Scoring " + lowestScorePerSubject);
 			System.out.println("Total Score is:  " + sumOfAllScoreInASubject);
+			System.out.println("Average Score is:  " + roundOffAverageScorePerSubject);
 			System.out.println("Number of passes:  " + passes);
 			System.out.println("Number of Fails:  " + fails);
 			System.out.println();
-	}		
+	}
+
+
+	
+	
+	
+			
    }
 
 }
