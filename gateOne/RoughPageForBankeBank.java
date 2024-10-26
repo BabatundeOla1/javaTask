@@ -1,5 +1,5 @@
 import java.util.Scanner; 
-public class MyBank{
+public class Account{
 
 	private String name;
 	private String accountNumber;
@@ -92,7 +92,7 @@ public class MyBank{
     public static void main(String [] args){
 
 	Scanner sc = new Scanner(System.in);
-	MyBank bank = new MyBank();	
+	Account bankAccount = new Account();	
 
 	while(true){
 
@@ -107,16 +107,16 @@ public class MyBank{
 
 		switch(userOption){
 
-			case 1: bank.createAccount();
+			case 1: bankAccount.createAccount();
 				break;
 
-			case 2: bank.makeDeposit();
+			case 2: bankAccount.makeDeposit();
 				break;
 
-			case 3: bank.makewithdrawal();
+			case 3: bankAccount.makewithdrawal();
 				break;
 
-			case 4: bank.checkBalance();
+			case 4: bankAccount.checkBalance();
 				break;
 		}
 	}   

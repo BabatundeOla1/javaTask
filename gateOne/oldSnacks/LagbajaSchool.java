@@ -32,15 +32,15 @@ public class LagbajaSchool{
 
 	Scanner sc = new Scanner(System.in);
 	
-	for(int scores = 0; scores < numberOfStudents; scores++){
+	for(int students = 0; scores < numberOfStudents; scores++){
 		
 		for(int subjects = 0; subjects < numberOfSubjects; subjects++){
 
-			System.out.println("Entering Score for student" + " " + (scores + 1) + ".");
+			System.out.println("Entering Score for student" + " " + (students + 1) + ".");
 			System.out.println("Enter score for subject" + (subjects + 1) + ": ");
 			int studentSubjects = sc.nextInt();
 
-			studentsGrades[scores][subjects] = studentSubjects;
+			studentsGrades[students][subjects] = studentSubjects;
 
 			if(studentSubjects < 0 || studentSubjects > 100){
 				System.out.println("Invalid Input, Enter score again");
