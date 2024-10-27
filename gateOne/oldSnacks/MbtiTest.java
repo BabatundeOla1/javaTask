@@ -12,7 +12,8 @@ public class MbtiTest{
 	personalityQuestionsSensingAndIntuitive(name);
 	personalityQuestionsThinkingAndFeeling(name);
 	personalityQuestionsJudgingAndPerceptive(name);
-
+	personalityCheck();
+	
    }
 
    public static void personalityQuestionsExtrovertIntrovert(String name){
@@ -70,12 +71,15 @@ public class MbtiTest{
 	System.out.println("Number of A selected: " + totalAnswerA);
 	System.out.println("Number of B selected: " + totalAnswerB);
 
-
+	if(totalAnswerA > 2){
+		System.out.println("E");
+	}
+	else{
+		System.out.println("I");
+	}
    }
 
-
-
-    public static void personalityQuestionsSensingAndIntuitive(String name){
+  public static void personalityQuestionsSensingAndIntuitive(String name){
 
 	String [][] sensingAndIntuitive = {{"A: Interpret literally", "B: look for meaning and possibilities", " "}, 
 						{"A: practical, realistic, experimental", "B: imaginative, innovative, theoretical", " "}, 
@@ -129,6 +133,13 @@ public class MbtiTest{
 	
 	System.out.println("Number of A selected: " + totalAnswerA);
 	System.out.println("Number of B selected: " + totalAnswerB);
+
+	if(totalAnswerA > 2){
+		System.out.println("S");
+	}
+	else{
+		System.out.println("N");
+	}
 
       }
 
@@ -188,6 +199,13 @@ public class MbtiTest{
 	System.out.println("Number of A selected: " + totalAnswerA);
 	System.out.println("Number of B selected: " + totalAnswerB);
 
+	if(totalAnswerA > 2){
+		System.out.println("T");
+	}
+	else{
+		System.out.println("F");
+	}
+
    }
 
 
@@ -245,8 +263,47 @@ public class MbtiTest{
 	System.out.println("Number of A selected: " + totalAnswerA);
 	System.out.println("Number of B selected: " + totalAnswerB);
 
+	if(totalAnswerA > 2){
+		System.out.println("J");
+	}
+	else{
+		System.out.println("P");
+	}
+   }
 
-	
+   public static void personalityCheck(){
+
+	Scanner sc = new Scanner(System.in);
+
+	while(true){
+
+		System.out.println("1: ISTJ ");
+		System.out.println("2: ISFJ");
+		System.out.println("3: INFJ");
+		System.out.println("4: INTJ");
+		System.out.println("5: ISTP");
+		System.out.println("6: ISFP");
+		System.out.println("7: INFP");
+		System.out.println("8: INTP");
+		System.out.println("9: ESTP");
+		System.out.println("10: ESFP");
+		System.out.println("11: ENFP");
+		System.out.println("12: ENTP");
+		System.out.println("13: ESTJ");
+		System.out.println("14: ESFJ");
+		System.out.println("15: ENFJ");
+		System.out.println("16: ENTJ");
+
+		System.out.println("Choose an option: ");
+           	int userOption = sc.nextInt();
+
+		switch(userOption){
+
+			case 1: System.out.println(" ISTJ ");
+				System.out.println("adfdh");
+
+		}
+	}
    }
 
 }

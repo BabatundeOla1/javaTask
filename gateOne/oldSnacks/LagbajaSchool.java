@@ -168,33 +168,85 @@ public class LagbajaSchool{
 			System.out.println();
 	}
 
-	int hardestSubjects = 0;
-	
-	int easiestSubjects = 0;
-	int totalOfTheSubjects = 0;
+	int failuresInHardestSubjects = 0;
+	int theHardestSubject = 0;
+
+	int passesInEasiestSubjects = 0;
+	int theEasiestSubject = 0;
+
+	int totaolSumOfEachSubject = 0;
 	for(int subjects = 0; subjects < numberOfSubjects; subjects++){
 		
-		hardestSubjects = 0;
-		easiestSubjects = 0;
-		totalOfTheSubjects = 0;
+		failuresInHardestSubjects = 0;
 
+		passesInEasiestSubjects = 0;
+	
 		for(int students = 0; students < numberOfStudents; students++){
 
-			totalOfTheSubjects += studentsGrades[students][subjects];
+			totaolSumOfEachSubject += studentsGrades[students][subjects];			
 
 			if(studentsGrades[students][subjects] < 50){
-				hardestSubjects++;
+				failuresInHardestSubjects++;
+				theHardestSubject = subjects + 1;
 			}
 
 			if(studentsGrades[students][subjects] > 50){
-				easiestSubjects++;
+				passesInEasiestSubjects++;
+				theEasiestSubject = subjects + 1;
 			}
 		}
-
-		System.out.println("The hardest subject is with " + hardestSubjects + " failures");
-		System.out.println("The easiest subject is with " + easiestSubjects + " passes");
 	}
+
+		System.out.println("The hardest subject is subject " + theHardestSubject + " with " + failuresInHardestSubjects + " failures");
+		System.out.println("The easiest subject is subject " + theEasiestSubject + " with " + passesInEasiestSubjects + " passes");
+
 		
+		System.out.println("====================================================================");
+
+
+		System.out.println("CLASS SUMMARY");
+		System.out.println("====================================================================");
+		
+		int [] bestGraduatingStudentScore = new int[numberOfStudents];
+		int sumOfStudentScores = 0;
+
+		int highestStudentScore = 0;
+		int bestGraduatingStudentNumber = 0;
+
+		int lowestStudentScore = Integer.MAX_VALUE;
+		int worstGraduatingStudentNumber = 0;
+		
+		for(int students = 0; students < numberOfStudents; students++){
+			sumOfStudentScores = 0;
+			
+			for(int subjects = 0; subjects < numberOfSubjects; subjects++){
+
+				sumOfStudentScores += studentsGrades[students][subjects];		
+				
+				bestGraduatingStudentScore[students] = sumOfStudentScores;
+
+			}
+
+			if(sumOfStudentScores > highestStudentScore){
+        			highestStudentScore = sumOfStudentScores;
+       				bestGraduatingStudentNumber = students + 1;
+   			 }
+
+			if(sumOfStudentScores < lowestStudentScore){
+        			lowestStudentScore = sumOfStudentScores;
+       				worstGraduatingStudentNumber = students + 1;
+   			 }				
+		}		
+			System.out.println("Best Graduating Student is: " + "student " + bestGraduatingStudentNumber + " " + highestStudentScore);
+		System.out.println("====================================================================");
+
+		System.out.println();
+
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");	
+
+			System.out.println("worst Graduating Student is: " + "student " + worstGraduatingStudentNumber + " " + lowestStudentScore);
+
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");	
    }
 
 }
