@@ -65,46 +65,29 @@ public class LagbajaSchool{
 
 
 
-
-	int [] getThePosition = new int[numberOfStudents];
-
+	int[] classTotalScore = new int[numberOfStudents];
+	
 	for(int index = 0; index < studentsGrades.length; index++){
 
-		
-		int sum = 0;	
+		int total = 0;	
 		double average = 0;
 		double roundOff = 0;
 		System.out.print("Student" + " " + (index + 1));
 
 		for(int elements = 0; elements < studentsGrades[index].length; elements++){
 
-			sum += studentsGrades[index][elements];
+			total += studentsGrades[index][elements];
 
-			average = (double)sum / numberOfSubjects;
-
-			roundOff = Math.round(average*100)/100.00;
-
-			getThePosition[index] = (int)average;
+			classTotalScore[index] = total;
 			
+			average =  (double)total / numberOfSubjects;
+
+			roundOff = Math.round(average*100)/100.00;			
+
 			System.out.print(" \t " + studentsGrades[index][elements]);
 		}
-		
-		int[] position = new int[numberOfStudents];
-		int count = 0;
-		
-		for(count = 0; count < getThePosition.length; count++){		
-			position[count] = 1;
-			
-			for(int counter = 1; counter < getThePosition.length - 1; counter++){
-
-				if(getThePosition[counter - 1] < getThePosition[counter]){
-						position[count]++;
-				}
-			}
-		}
-			System.out.print("\t" + sum);
+			System.out.print("\t" + total);
 			System.out.print("\t" + roundOff);
-			System.out.print("\t" + position);
 			System.out.println();
 	}
 	System.out.println("====================================================================");
@@ -117,6 +100,10 @@ public class LagbajaSchool{
 		System.out.println("STUDENT SUMMARY\n");
 
 	int studentScores = 0;
+
+	int highestScoringStudent = 0;
+
+	int lowestScoringStudent = 0;
 
 	for(int subjects = 0; subjects < numberOfSubjects; subjects++){
 
@@ -140,10 +127,12 @@ public class LagbajaSchool{
 
 			if(studentsGrades[studentScores][subjects] > highestScorePerSubject){
 				highestScorePerSubject = studentsGrades[studentScores][subjects];
+					highestScoringStudent = studentScores + 1;
 			}
 
 			if(studentsGrades[studentScores][subjects] < lowestScorePerSubject){
 				lowestScorePerSubject = studentsGrades[studentScores][subjects];
+					lowestScoringStudent = studentScores + 1;
 			}
 
 			averageScorePerSubject = (double)sumOfAllScoreInASubject / numberOfStudents;
@@ -159,8 +148,8 @@ public class LagbajaSchool{
 			}	
 		}
 			System.out.println("SUBJECT " + (subjects + 1));
-			System.out.println("Highest Scoring Student is:  "  + " Student " + studentScores + " Scoring " + highestScorePerSubject);
-			System.out.println("Lowest Scoring Student is:  " + " Student " + studentScores + " Scoring " + lowestScorePerSubject);
+			System.out.println("Highest Scoring Student is:  "  + " Student " + highestScoringStudent + " Scoring " + highestScorePerSubject);
+			System.out.println("Lowest Scoring Student is:  " + " Student " + lowestScoringStudent + " Scoring " + lowestScorePerSubject);
 			System.out.println("Total Score is:  " + sumOfAllScoreInASubject);
 			System.out.println("Average Score is:  " + roundOffAverageScorePerSubject);
 			System.out.println("Number of passes:  " + passes);
@@ -237,16 +226,32 @@ public class LagbajaSchool{
        				worstGraduatingStudentNumber = students + 1;
    			 }				
 		}		
-			System.out.println("Best Graduating Student is: " + "student " + bestGraduatingStudentNumber + " " + highestStudentScore);
+			System.out.println("Best Graduating Student is: " + "student " + bestGraduatingStudentNumber + " scoring " + highestStudentScore);
 		System.out.println("====================================================================");
 
 		System.out.println();
 
 		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");	
 
-			System.out.println("worst Graduating Student is: " + "student " + worstGraduatingStudentNumber + " " + lowestStudentScore);
+			System.out.println("worst Graduating Student is: " + "student " + worstGraduatingStudentNumber + " scoring " + lowestStudentScore);
 
 		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");	
+
+
+		System.out.println("====================================================================");
+
+			int sum = 0;
+			int average = 0;
+			for(int count = 0; count < classTotalScore.length; count++){
+
+				sum += classTotalScore[count];
+
+				average = sum / numberOfStudents;
+			}
+				System.out.println("Class total score is: " + sum);
+				System.out.println("Class Average score is: " + average);
+	
+		System.out.println("====================================================================");
    }
 
 }
