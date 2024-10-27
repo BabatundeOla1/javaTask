@@ -20,7 +20,7 @@ public class MensturationApp{
 
 	LocalDate nextPeriodDate = getNextPeriodDate(theDateOfPreviousPeriod, lastPeriodLength);
 	LocalDate OvulationDate = getOvulationDate(nextPeriodDate, lastPeriodLength);
-	LocalDate DaysOfBleeding = getDaysOfBleeding(nextPeriodDate, periodDays);
+	LocalDate DaysOfBleeding = getDaysOfFlow(nextPeriodDate, periodDays);
 
 	
 	System.out.println("Your next period is: " + nextPeriodDate);
@@ -39,7 +39,7 @@ public class MensturationApp{
 
    }
 
-   public static LocalDate getDaysOfBleeding(LocalDate nextDay, int periodDays){
+   public static LocalDate getDaysOfFlow(LocalDate nextDay, int periodDays){
 	return nextDay.plusDays(periodDays);
 
    }
