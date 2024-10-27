@@ -7,10 +7,10 @@ public class LagbajaSchool{
 
 	Scanner sc = new Scanner(System.in);
 
-	System.out.println("How many students do you have? ");
+	System.out.print("How many students do you have? ");
 	int numberOfStudents = sc.nextInt();
 
-	System.out.println("How many subjects do you offer?: ");
+	System.out.print("How many subjects do you offer? ");
 	int numberOfSubjects = sc.nextInt();
 
 	
@@ -32,7 +32,7 @@ public class LagbajaSchool{
 
 	Scanner sc = new Scanner(System.in);
 	
-	for(int students = 0; scores < numberOfStudents; scores++){
+	for(int students = 0; students < numberOfStudents; students++){
 		
 		for(int subjects = 0; subjects < numberOfSubjects; subjects++){
 
@@ -70,6 +70,7 @@ public class LagbajaSchool{
 
 	for(int index = 0; index < studentsGrades.length; index++){
 
+		
 		int sum = 0;	
 		double average = 0;
 		double roundOff = 0;
@@ -89,20 +90,21 @@ public class LagbajaSchool{
 		}
 		
 		int[] position = new int[numberOfStudents];
+		int count = 0;
 		
-		for(int count = 0; count < getThePosition.length; count++){		
+		for(count = 0; count < getThePosition.length; count++){		
 			position[count] = 1;
 			
-			for(int counter = 0; counter < getThePosition.length - 1; counter++){
+			for(int counter = 1; counter < getThePosition.length - 1; counter++){
 
-				if(getThePosition[count] < getThePosition[counter + 1]){
+				if(getThePosition[counter - 1] < getThePosition[counter]){
 						position[count]++;
 				}
 			}
 		}
 			System.out.print("\t" + sum);
 			System.out.print("\t" + roundOff);
-			//System.out.print("\t" + position[count]);
+			System.out.print("\t" + position);
 			System.out.println();
 	}
 	System.out.println("====================================================================");
@@ -112,10 +114,10 @@ public class LagbajaSchool{
 
 
 
-
-
 		System.out.println("STUDENT SUMMARY\n");
+
 	int studentScores = 0;
+
 	for(int subjects = 0; subjects < numberOfSubjects; subjects++){
 
 		int sumOfAllScoreInASubject = 0;
@@ -164,7 +166,35 @@ public class LagbajaSchool{
 			System.out.println("Number of passes:  " + passes);
 			System.out.println("Number of Fails:  " + fails);
 			System.out.println();
-	}		
+	}
+
+	int hardestSubjects = 0;
+	
+	int easiestSubjects = 0;
+	int totalOfTheSubjects = 0;
+	for(int subjects = 0; subjects < numberOfSubjects; subjects++){
+		
+		hardestSubjects = 0;
+		easiestSubjects = 0;
+		totalOfTheSubjects = 0;
+
+		for(int students = 0; students < numberOfStudents; students++){
+
+			totalOfTheSubjects += studentsGrades[students][subjects];
+
+			if(studentsGrades[students][subjects] < 50){
+				hardestSubjects++;
+			}
+
+			if(studentsGrades[students][subjects] > 50){
+				easiestSubjects++;
+			}
+		}
+
+		System.out.println("The hardest subject is with " + hardestSubjects + " failures");
+		System.out.println("The easiest subject is with " + easiestSubjects + " passes");
+	}
+		
    }
 
 }

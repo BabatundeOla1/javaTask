@@ -1,5 +1,5 @@
 import java.util.Scanner; 
-public class MibtTest{
+public class MbtiTest{
 
    public static void main(String [] args){
 
