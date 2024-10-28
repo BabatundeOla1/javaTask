@@ -3,7 +3,7 @@ public class CreditCardValidation{
    public static void main(String [] args){
 
    java.util.Scanner sc = new java.util.Scanner(System.in);
-	
+ 
 	System.out.print("Enter Card Number: ");
 	String userCard = sc.nextLine();
 	
@@ -17,11 +17,20 @@ public class CreditCardValidation{
 	System.out.println("Card Type: " + checkValidity(userCard));
 
 	System.out.print("************************************");
-   
    }
 
 
   public static String validateCard(String theNumber){
+	
+   try{
+
+	if(!theNumber.matches("\\d+")){
+		return "Error: Card number should contain only digits.";
+	}
+
+	if(theNumber.length() < 13 || theNumber.length() > 16){
+		return "Invalid Card Length";
+	}
 
 	if(theNumber.startsWith("4")){
 		return "VisaCard";
@@ -41,10 +50,24 @@ public class CreditCardValidation{
 
 	else 
 		return "Invalid Card";
+
+   }
+
+   catch (NullPointerException e) {
+    
+	return "Error: Card number cannot be null.";
+   }
    }
 
 
    public static String checkValidity(String cardNumber){
+
+   try{
+
+	if(!cardNumber.matches("\\d+")){
+		return "Error: Card number should contain only digits.";
+	}
+
 
 	int sumOdd = 0, sumEven = 0, totalSum = 0;
 	
@@ -74,5 +97,12 @@ public class CreditCardValidation{
         totalSum = sumEven + sumOdd;
 
         return (totalSum % 10 == 0) ? "Valid" : "Invalid";
+
+   }
+
+   catch (NullPointerException e) {
+    
+	return "Error: Card number cannot be null.";
+   }
    }
 }
