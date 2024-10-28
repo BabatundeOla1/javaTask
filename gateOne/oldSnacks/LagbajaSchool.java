@@ -6,7 +6,7 @@ public class LagbajaSchool{
    public static void main(String [] args){
 
 	Scanner sc = new Scanner(System.in);
-
+	
 	System.out.print("How many students do you have? ");
 	int numberOfStudents = sc.nextInt();
 
@@ -17,16 +17,20 @@ public class LagbajaSchool{
 	System.out.println("Saving >>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 	System.out.println("Saved Successfully");
 	
+		getStudentScoresAndGrade(numberOfStudents, numberOfSubjects);
 
-	System.out.println();
-
-	getStudentScoresAndGrade(numberOfStudents, numberOfSubjects);
+	
+	
 
   }
 
 
 
    public static void getStudentScoresAndGrade(int numberOfStudents, int numberOfSubjects){
+
+	if(numberOfStudents < 0 && numberOfSubjects < 0){
+		System.out.println("Please enter a positive integer.");
+	}
 	
 	int [][] studentsGrades = new int[numberOfStudents][numberOfSubjects];
 
@@ -252,6 +256,7 @@ public class LagbajaSchool{
 				System.out.println("Class Average score is: " + average);
 	
 		System.out.println("====================================================================");
-   }
 
+   }
+   
 }
