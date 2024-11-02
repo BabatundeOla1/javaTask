@@ -21,14 +21,8 @@ public class CreditCardValidation{
 
 
   public static String validateCard(String theNumber){
-	
-   try{
 
-	if(!theNumber.matches("\\d+")){
-		return "Error: Card number should contain only digits.";
-	}
-
-	if(theNumber.length() < 13 || theNumber.length() > 16){
+	if(theNumber.length() <= 13 || theNumber.length() > 16){
 		return "Invalid Card Length";
 	}
 
@@ -53,21 +47,8 @@ public class CreditCardValidation{
 
    }
 
-   catch (NullPointerException e) {
-    
-	return "Error: Card number cannot be null.";
-   }
-   }
-
 
    public static String checkValidity(String cardNumber){
-
-   try{
-
-	if(!cardNumber.matches("\\d+")){
-		return "Error: Card number should contain only digits.";
-	}
-
 
 	int sumOdd = 0, sumEven = 0, totalSum = 0;
 	
@@ -97,12 +78,5 @@ public class CreditCardValidation{
         totalSum = sumEven + sumOdd;
 
         return (totalSum % 10 == 0) ? "Valid" : "Invalid";
-
-   }
-
-   catch (NullPointerException e) {
-    
-	return "Error: Card number cannot be null.";
-   }
    }
 }

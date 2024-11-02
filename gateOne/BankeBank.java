@@ -5,13 +5,14 @@ public class BankeBank{
    public static void main(String [] args){
 
 	Scanner sc = new Scanner(System.in);
-	MyBank bank = new MyBank();	
+	MyBank bank = new MyBank(myName, myAccountNumber, myPin);	
 
 	while(true){
 
 		System.out.println("1. Deposit");
 		System.out.println("2. Withdraw");
 		System.out.println("3. Balance");
+		System.out.println("4. Create Account");
 		System.out.println("0. Exit");	
 
 		System.out.print("Choose an option: ");
@@ -26,6 +27,9 @@ public class BankeBank{
 				break;
 
 			case 3: bank.checkBalance();
+				break;
+
+			case 4: bank.createAccount();
 				break;
 		}
 	}   

@@ -6,22 +6,18 @@ public class LagbajaSchool{
    public static void main(String [] args){
 
 	Scanner sc = new Scanner(System.in);
-	
+    
 	System.out.print("How many students do you have? ");
 	int numberOfStudents = sc.nextInt();
-
-	System.out.print("How many subjects do you offer? ");
-	int numberOfSubjects = sc.nextInt();
-
 	
+	System.out.print("How many subjects do you offer? ");
+	int numberOfSubjects = sc.nextInt();	
+
 	System.out.println("Saving >>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 	System.out.println("Saved Successfully");
 	
-		getStudentScoresAndGrade(numberOfStudents, numberOfSubjects);
-
-	
-	
-
+	getStudentScoresAndGrade(numberOfStudents, numberOfSubjects);
+    
   }
 
 
@@ -90,8 +86,21 @@ public class LagbajaSchool{
 
 			System.out.print(" \t " + studentsGrades[index][elements]);
 		}
+
+		int position = 1;
+		for(int count = 0; count < numberOfStudents; count++){
+			
+			position = 1;
+			for(int counter = 0; counter < numberOfStudents; counter++){
+
+				if(classTotalScore[count] < classTotalScore[counter])
+					position++;
+				
+			}
+		}
 			System.out.print("\t" + total);
 			System.out.print("\t" + roundOff);
+			System.out.print("\t" + position);
 			System.out.println();
 	}
 	System.out.println("====================================================================");
