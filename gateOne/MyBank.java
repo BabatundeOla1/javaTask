@@ -1,5 +1,4 @@
 import java.util.Scanner; 
-import java.util.Random;
 public class MyBank{
 
 	private String name;
@@ -31,66 +30,71 @@ public class MyBank{
 	
    }
 
-   public void createAccount(String name, int Pin){
 
-	Scanner sc = new Scanner(System.in);
+   public void displayAccountNumber(){
 
-	System.out.print("Enter First Name and Last Name: ");
-	String firstName = sc.nextLine().toUpperCase();
-
-	//System.out.print("Enter Last Name: ");
-	//String lastName = sc.nextLine().toUpperCase();
-
-	System.out.print("Enter Pin: ");
-	int pin = sc.nextInt();
-
-	System.out.println("Welcome To Our Bank " + firstName);
-   }
-
-
-   public void makeDeposit(){
-
-	System.out.println("DEPOSIT\n");
-
-	Scanner sc = new Scanner(System.in);
-        System.out.print("Enter amount to deposit: ");
-        double amount = sc.nextDouble();
-
-	if(amount <= 0){
-		System.out.println("Invalid deposit");
-		
-	}
-	else{
-		balance += amount;
-		System.out.println("Deposit of " + "$" + amount + " successful!");
-	}
+	System.out.println("Account Number: " + accountNumber);
    } 
 
 
+   public void makeDeposit(){
+	
+	System.out.println("DEPOSIT\n");
+	
+	Scanner sc = new Scanner(System.in);
+	
+	System.out.print("Enter account number: ");
+	String inputAccountNumber = sc.nextLine();
 
-   public void makewithdrawal(){
+	System.out.print("Enter amount to deposit: ");
+	double amount = sc.nextDouble();
 
+	if(amount <= 0){
+	System.out.println("Invalid deposit");
+		
+	} else {
+		balance += amount;
+		System.out.println("=============================================");
+		System.out.println("Deposit of $" + amount + " successful!");
+		System.out.println("=============================================");
+		System.out.println("\tTHANKS FOR BANKING WITH US :) ");
+		System.out.println();
+	}
+   } 
+
+   public void makeWithdrawal(){
 	Scanner sc = new Scanner(System.in);
 
 	System.out.print("Enter Pin: ");
 	int inputPin = sc.nextInt();
 
-	if(inputPin == pin){
+	System.out.print("Enter account number: ");
+	String inputAccountNumber = sc.nextLine();
 
-       		System.out.print("Enter amount to deposit: ");
+	sc.nextLine();
+
+	if(inputPin == pin || inputAccountNumber == accountNumber){
+
+       		System.out.print("Enter amount to withdraw: ");
         	double amount = sc.nextDouble();
 
 		if (amount <= balance) {
                 	balance -= amount;
-                	System.out.println("Withdrawal successful!");
-        	}
-		else{
-                	System.out.println("Insufficient balance!");
+
+			System.out.println();
+			
+			System.out.println("\tWITHDRAW SUCCESSFUL!");
+			System.out.println("===============================");
+                	System.out.println("Withdrawal of $" + amount + " successful!");
+			System.out.println("===============================");
+
+			System.out.println();
+
+        	} else{
+                	System.out.println("Insufficient balance! Kindly Deposit");
         	}	
-	}
-	
-	else{
-		System.out.println("Incorrect Pin");
+	} else{
+		System.out.println("Incorrect Pin or Incorrect Account Number");
 	}
    }
 
@@ -105,11 +109,24 @@ public class MyBank{
 	if(inputPin == pin){
 		System.out.println("Balance: $" + balance);
 		
-	}
-	
-	else{
+	} else{
 		System.out.print("Incorrect Pin");
 	}
    }
+ 
+   public void bankDetails(){
 
+		System.out.println();
+		System.out.println("Your Bank details are: ");
+	System.out.println("===============================");
+	
+	System.out.println("Account Name:\n " + name);
+		System.out.println();
+	System.out.println("Account Number:\n " + accountNumber + "\n");
+
+	System.out.println("===============================");
+
+	
+	
+   }
 }

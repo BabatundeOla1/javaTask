@@ -9,7 +9,7 @@ public class ArrayScores{
 	for(int count = 0; count < 10; count++){
 		
 		System.out.print("Enter scores of student: ");
-		int scores[score] = sc.nextInt();
+		int scores = sc.nextInt();
 	
 	}
 
