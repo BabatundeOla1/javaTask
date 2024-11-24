@@ -5,7 +5,6 @@ public class MyStackTest {
 
     @Test
     public void TestThatStackIsEmpty(){
-        boolean isEmpty = true;
         MyStack mySt = new MyStack();
         assertTrue(mySt.isEmpty());
     }
@@ -17,5 +16,6 @@ public class MyStackTest {
         mySt.push("Babatunde");
         mySt.push("Olaleye");
         assertEquals(3, mySt.size());
+
     }
 }

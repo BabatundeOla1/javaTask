@@ -7,14 +7,14 @@ public class MyStack {
         this.element = new ArrayList<>();
     }
 
-    public boolean isEmpty() {
-        return element.isEmpty();
-    }
+//    public boolean isEmpty() {
+//        return element.isEmpty();
+//    }
 
-    public int size(int x){
-        return this.size;
+    public int size() {
+        return element.size();
     }
-    public void push(String input){
-
+    public String push(String input){
+        return element.add(input);
     }
 }
