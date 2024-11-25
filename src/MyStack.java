@@ -2,19 +2,25 @@ import java.util.ArrayList;
 
 public class MyStack {
     private ArrayList<String> element;
+    private boolean isEmpty;
     private int size;
     public MyStack(){
         this.element = new ArrayList<>();
+        this.isEmpty = true;
     }
 
-//    public boolean isEmpty() {
-//        return element.isEmpty();
-//    }
+    public boolean Empty() {
+        return this.isEmpty;
+    }
 
     public int size() {
         return element.size();
     }
-    public String push(String input){
-        return element.add(input);
+    public void push(String input){
+        element.add(input);
+    }
+
+    public String pop() {
+        return element.remove(0);
     }
 }
