@@ -20,7 +20,7 @@ public class MyStack {
         element.add(input);
     }
 
-    public String pop() {
-        return element.remove(0);
-    }
+//    public void pop() {
+//        return element.remove();
+//    }
 }
