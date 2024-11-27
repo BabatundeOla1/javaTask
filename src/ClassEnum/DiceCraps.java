@@ -25,7 +25,6 @@ public class DiceCraps {
 
         return sum;
     }
-
     public static void gameWinner(){
 
         int myPoint = 0;
@@ -49,7 +48,6 @@ public class DiceCraps {
         }
         if (gameStatus == Status.CONTINUE){
             sumOfDice = rollDice();
-
             if (sumOfDice == myPoint){
                 gameStatus = Status.WON;
             }
@@ -59,7 +57,6 @@ public class DiceCraps {
                 }
             }
         }
-
         if (gameStatus == Status.WON){
             System.out.println("Player Wins");
         }
