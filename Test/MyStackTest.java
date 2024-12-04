@@ -1,7 +1,7 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class MyStackTest {
+public class MyStackTest{
 
     @Test
     public void TestThatStackIsEmpty(){
@@ -24,9 +24,24 @@ public class MyStackTest {
         mySt.push("Ola");
         mySt.push("Babs");
         assertEquals(3, mySt.size());
-        mySt.pop();
-        assertEquals("Ola", mySt.pop());
-
+        String result = mySt.pop();
+        assertEquals("Babs", result);
+    }
+    @Test
+    public void TestThatStackCanShowElement(){
+        MyStack mySt = new MyStack();
+        mySt.push("Theezy");
+        mySt.push("Ola");
+        mySt.push("Babs");
+        mySt.peek();
     }
 
+    @Test
+    public void displayStackElements(){
+        MyStack mySt = new MyStack();
+        mySt.push("Theezy");
+        mySt.push("Ola");
+        mySt.push("Babs");
+        mySt.displayStack();
+    }
 }

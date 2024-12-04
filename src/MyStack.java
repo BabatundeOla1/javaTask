@@ -20,7 +20,18 @@ public class MyStack {
         element.add(input);
     }
 
-    public void pop(){
-        element.remove(element.size() - 1);
+    public int display(){
+        return element.size() - 1;
+    }
+
+    public String pop(){
+        return element.remove(display());
+    }
+    public void peek(){
+        System.out.println(element.remove(display()));
+    }
+
+    public void displayStack() {
+        System.out.println(element);
     }
 }
