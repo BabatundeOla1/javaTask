@@ -34,4 +34,8 @@ public class Account {
             throw new IllegalArgumentException("Incorrect pincode");
         }
     }
+
+    public String getPin() {
+        return pincode;
+    }
 }

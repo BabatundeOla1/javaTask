@@ -14,7 +14,7 @@ public class AccountTest {
     }
 
     @Test
-    public void Test_that_account_can_deposit_10k_and_withdraw_5k_and_give_5kBalance() throws Exception {
+    public void Test_that_account_can_deposit_10k_and_withdraw_5k_and_give_5kBalance(){
         Account account = new Account("0074945501", "Babatunde", "correct Pincode");
         account.deposit(10_000);
         account.withdraw(5_000, "correct Pincode");
