@@ -4,21 +4,20 @@ import java.util.ArrayList;
 
 public class Bank {
     private ArrayList<Account> accounts = new ArrayList<>();
-    private int numberOfAccounts = 0;
+    private int numberOfAccounts;
 
-    public int getNumberOfAccounts(){
-        return this.numberOfAccounts;
-    }
+    private String phoneNumber;
+
+
 
     public Account createAccount(String accountName, String pinCode) {
         numberOfAccounts++;
-        String accountNumber = Integer.toString(generateAccount());
+        String accountNumber = Integer.toString(numberOfAccounts);
         Account myAccount = new Account(accountNumber, accountName, pinCode);
         accounts.add(myAccount);
         return myAccount;
     }
-
-    public int generateAccount(){
+    public int getNumberOfAccounts(){
         return numberOfAccounts;
     }
 
@@ -27,18 +26,19 @@ public class Bank {
         if(amount < 1){
             throw new IllegalArgumentException("invalid deposit amount.");
         }
-        if(checkAccount != null)
+        if(checkAccount != null) {
             checkAccount.deposit(amount);
+        }
         else
             throw new IllegalArgumentException("Account not found");
     }
 
-    private Account findAccount(String accountNumber){
+    public Account findAccount(String accountNumber){
         for(Account myAccount : accounts ){
             if(myAccount.getAccountNumber().equals(accountNumber))
                 return myAccount;
         }
-        return null;
+        throw new IllegalArgumentException("invalid deposit amount.");
     }
 
     public int withdraw(int amount, String pin, String accountNumber) {

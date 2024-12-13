@@ -12,6 +12,7 @@ public class Account {
         this.balance = 0;
         this.pincode = pinCode;
     }
+
     public String getAccountNumber() {
         return this.number;
     }
@@ -22,7 +23,7 @@ public class Account {
     }
 
     public int deposit(int amount) {
-        return this.balance += amount;
+        return balance += amount;
     }
     public int withdraw(int amount, String pin) {
         validatePincode(pin);

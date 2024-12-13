@@ -8,9 +8,9 @@ import static org.junit.Assert.assertThrows;
 public class AccountTest {
     @Test
     public void Test_that_account_can_deposit_5k_and_balance_is_5k(){
-       Account account = new Account("0074945501", "Babatunde", "correct pincode");
+        Account account = new Account("0074945501", "Babatunde", "correct Pincode");
         account.deposit(5_000);
-        assertEquals(5_000, account.getBalance("correct pincode"));
+        assertEquals(5_000, account.getBalance("correct Pincode"));
     }
 
     @Test
