@@ -1,35 +1,32 @@
 package EVoter;
 
+import java.util.Scanner;
+
 public class Candidate {
-    private String password;
     private String name;
-    private char gender;
     private String CandidateID;
-    public Candidate(String password, String name, char gender, String userID){
-        this.password = password;
+    private int countVote;
+    public Candidate(String name, String userID){
         this.name = name;
-        this.gender = gender;
         this.CandidateID = userID;
+        this.countVote = 0;
     }
 
-    public void setAge(String password) {
-        validateAge(password);
-        this.password = password;
-    }
     public void setName(String name) {
         validatName(name);
         this.name = name;
     }
-    public String getPassWord() {
-        return password;
+    public int getCountCandidateVote(){
+        return countVote;
     }
+
+    public void incrementCandidateVoteCount(){
+        this.countVote++;
+    }
+
     public String getName() {
         return name;
     }
-    public char getGender() {
-        return gender;
-    }
-
     public String getCandidateID(){
         return CandidateID;
     }
@@ -38,9 +35,7 @@ public class Candidate {
             throw new IllegalArgumentException("Invalid Name");
         }
     }
-    private void validateAge(String password){
-        if(password.matches(".*\\d.*")){
-            throw new IllegalArgumentException("Invalid Name");
-        }
-    }
+//    public int displayResult() {
+//        return countVote;
+//    }
 }
