@@ -26,10 +26,6 @@ public class Inec {
         return candidates;
     }
 
-//    public void voterLogin(String voterID, String password){
-//
-//    }
-
     public int getNumberOfCandidateRegisterated(){
         return numberOfCandidateRegisterated;
     }

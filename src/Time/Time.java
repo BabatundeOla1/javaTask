@@ -13,6 +13,22 @@ public class Time {
         this.minute = minute;
         this.second = second;
     }
+
+    public void setHour(int hour) {
+        validateHour(hour);
+        this.hour = hour;
+    }
+
+    public void setMinute(int minute) {
+        validateMinute(minute);
+        this.minute = minute;
+    }
+
+    public void setSecond(int second) {
+        validateSecond(second);
+        this.second = second;
+    }
+
     public String toUniversalString(){
         return  String.format("%02d:%02d:%02d", hour, minute, second);
     }
@@ -40,3 +56,5 @@ public class Time {
         }
     }
 }
+
+

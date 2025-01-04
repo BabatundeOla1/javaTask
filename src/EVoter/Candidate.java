@@ -35,7 +35,5 @@ public class Candidate {
             throw new IllegalArgumentException("Invalid Name");
         }
     }
-//    public int displayResult() {
-//        return countVote;
-//    }
+
 }

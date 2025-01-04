@@ -26,6 +26,7 @@ public class MyStackTest{
         assertEquals(3, mySt.size());
         String result = mySt.pop();
         assertEquals("Babs", result);
+        System.out.println(result);
     }
     @Test
     public void TestThatStackCanShowElement(){

@@ -84,8 +84,12 @@ public class Election {
         try{
             String candidateID = input("Enter I.D: ");
             Candidate candidate = inec.findCandidateAccount(candidateID);
-            display("Login Successful.");
-
+            if(candidate != null){
+                display("Login Successful.");
+            }
+            else {
+                display("Invalid Login details.");
+            }
         }catch (IllegalArgumentException error){
             display("Candidate not found. Login failed.");
         }
@@ -97,7 +101,9 @@ public class Election {
             String voterID = input("Enter I.D: ");
             String voterPassword = input("Enter Password: ");
             Voter voter = inec.findVoterAccount(voterID);
-            if(voter != null && voter.getPassword().equals(voterPassword)){
+            boolean validateVoter = voter != null;
+            boolean validateVoterPassword = voter.getPassword().equals(voterPassword);
+            if(validateVoter && validateVoterPassword){
                 display("Login Successful.");
             }
             else {

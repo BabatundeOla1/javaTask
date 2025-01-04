@@ -11,11 +11,9 @@ public class EncryptionAndDecryption {
             if(Character.isUpperCase(letter)) {
                 newWords += Character.toString((char) ((letter + number)));
             }
-
             if(Character.isLowerCase(letter)) {
                 newWords += Character.toString((char) ((letter + number)));
             }
-
             else{
                 throw new IllegalArgumentException("Words should be CAPITAL or small letter althrough");
             }
