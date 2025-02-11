@@ -11,9 +11,11 @@ public class Inec {
     private int numberOfCandidateRegisterated;
     private static ArrayList<Voter> voteRegistration = new ArrayList<>();
     private static ArrayList<Candidate> electionCandidate = new ArrayList<>();
+    private ArrayList<Party> candidateParty = new ArrayList<>();
 
     public Voter voterRegistration(int userAge, String userName, String password) {
         this.voterID = generateVoterID();
+        validatePassword(password);
         Voter voters = new Voter(userAge, userName, voterID, password);
         voteRegistration.add(voters);
         return voters;
@@ -33,7 +35,6 @@ public class Inec {
         return numberOfRegisteration;
     }
 
-
     public Voter findVoterAccount(String voterID){
         for(Voter voters : voteRegistration){
             if (voters.getUserID().equals(voterID)) {
@@ -46,21 +47,20 @@ public class Inec {
         for (Candidate candidates : electionCandidate) {
             if (candidates.getCandidateID().equals(candidateID)) {
                 return candidates;
-            } else {
-                throw new IllegalArgumentException("Candidate Account is Invalid");
             }
         }
-        return null;
+        throw new IllegalArgumentException("Candidate Account is Invalid");
     }
-    public void castVote(String voterID, String candidateID){
-        Voter voter = findVoterAccount(voterID);
+    public void castVote(String candidateID){
         Candidate candidate = findCandidateAccount(candidateID);
         candidate.incrementCandidateVoteCount();
     }
 
-    public int displayResult(String candidateID) {
-        Candidate candidate = findCandidateAccount(candidateID);
-        return candidate.getCountCandidateVote();
+    public void displayResults() {
+        System.out.println("Election Results:");
+        for (Candidate candidate : electionCandidate) {
+            display(candidate.getName() + " - Votes: " + candidate.getCountCandidateVote());
+        }
     }
 
     private String generateVoterID(){
@@ -81,5 +81,16 @@ public class Inec {
 
     private static void display(String message){
         System.out.println(message);
+    }
+
+    private void validatePassword(String password){
+        boolean checkPassword = password.length() < 8;
+        if(checkPassword){
+            throw new IllegalArgumentException("Password length should be greater than eight");
+        }
+
+        if(password.isBlank()){
+            throw new IllegalArgumentException("password can not be blank");
+        }
     }
 }

@@ -7,6 +7,9 @@ public class Voter {
     private String password;
 
     public Voter(int age, String name, String userID, String password){
+        validateAge(age);
+        validatName(name);
+        validatePassword(password);
         this.age = age;
         this.name = name;
         this.userID = userID;
@@ -43,11 +46,18 @@ public class Voter {
         if(name.matches(".*\\d.*")){
             throw new IllegalArgumentException("Invalid Name");
         }
+        if(name.isBlank()){
+            throw new IllegalArgumentException("Name can not be blank");
+        }
     }
     private void validatePassword(String password){
         boolean checkPassword = password.length() < 8;
         if(checkPassword){
             throw new IllegalArgumentException("Password length should be four");
+        }
+
+        if(password.isBlank()){
+            throw new IllegalArgumentException("password can not be blank");
         }
     }
     private void validateAge(int age){

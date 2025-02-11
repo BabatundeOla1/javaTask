@@ -1,9 +1,6 @@
 package bankApp;
 
-import javax.swing.*;
 import java.util.Scanner;
-
-import static java.lang.System.in;
 
 public class Atm {
    private static Bank gtBank = new Bank();
@@ -45,42 +42,71 @@ public class Atm {
         }
         catch (IllegalArgumentException exception){
             display(exception.getMessage());
+            MainMenu();
         }
         MainMenu();
     }
     private static void deposit() {
-        int amount = Integer.parseInt(input("Enter amount to deposit: "));
-        String accountNumber = input("Enter account number: ");
-        gtBank.deposit(amount, accountNumber);
-        display("Deposit of $" + amount + " successfully!!");
-        MainMenu();
+        try{
+            int amount = Integer.parseInt(input("Enter amount to deposit: "));
+            String accountNumber = input("Enter account number: ");
+            gtBank.deposit(amount, accountNumber);
+            display("Deposit of NGN " + amount + " successfully!!");
+            MainMenu();
+        }
+        catch(IllegalArgumentException exception){
+            display(exception.getMessage());
+            MainMenu();
+        }
+
     }
 
     private static void withdraw() {
-        int amount = Integer.parseInt(input("Enter amount to withdraw: "));
-        String pin = input("Enter pin code: ");
-        String accountNumber = input("Enter your account number: ");
-        gtBank.withdraw(amount, pin, accountNumber);
-        display("Withdrawal of $" + amount + " successfully!!");
-        MainMenu();
+        try{
+            int amount = Integer.parseInt(input("Enter amount to withdraw: "));
+            String pin = input("Enter pin code: ");
+            String accountNumber = input("Enter your account number: ");
+            gtBank.withdraw(amount, pin, accountNumber);
+            display("Withdrawal of NGN " + amount + " successfully!!");
+            MainMenu();
+        }
+        catch (IllegalArgumentException exception){
+            display(exception.getMessage());
+            MainMenu();
+        }
+
     }
 
     private static void checkBalance() {
-        String pin = input("Enter your pin: ");
-        String accountNumber = input("Enter account number: ");
-        Account account = gtBank.findAccount(accountNumber);
-        display(String.format("Balance is %,d: ", account.getBalance(pin)));
-        MainMenu();
+        try{
+            String pin = input("Enter your pin: ");
+            String accountNumber = input("Enter account number: ");
+            Account account = gtBank.findAccount(accountNumber);
+            display(String.format("Balance is NGN %,d: ", account.getBalance(pin)));
+            MainMenu();
+        }
+        catch(IllegalArgumentException exception){
+            display(exception.getMessage());
+            MainMenu();
+        }
+
+
     }
 
     private static void Transfer() {
-        String sendersAccountNumber = input("Enter Sender's Account Number: ");
-        String recipientAccountNumber = input("Enter Recipient's Account Number: ");
-        String pin = input("Enter pin code: ");
-        int amount = Integer.parseInt(input("Enter amount to transfer: "));
-        gtBank.transfer(sendersAccountNumber, recipientAccountNumber, amount, pin);
-        display("Transfer successful!!");
-        MainMenu();
+        try{
+            String sendersAccountNumber = input("Enter Sender's Account Number: ");
+            String recipientAccountNumber = input("Enter Recipient's Account Number: ");
+            String pin = input("Enter pin code: ");
+            int amount = Integer.parseInt(input("Enter amount to transfer: "));
+            gtBank.transfer(sendersAccountNumber, recipientAccountNumber, amount, pin);
+            display("Transfer of NGN" + amount + " is successful!!");
+            MainMenu();
+        }
+        catch(IllegalArgumentException exception){
+            display(exception.getMessage());
+            MainMenu();
+        }
     }
 
     private static void exitApp() {
@@ -89,13 +115,13 @@ public class Atm {
     }
     private static String input(String message) {
         display(message);
-       // Scanner sc = new Scanner(System.in);
-        // return sc.nextLine();
-       return JOptionPane.showInputDialog(message);
+        Scanner sc = new Scanner(System.in);
+        return sc.nextLine();
+       //return JOptionPane.showInputDialog(message);
     }
 
     private static void display(String message){
-        //System.out.println(message);
-        JOptionPane.showMessageDialog(null, message);
+        System.out.println(message);
+        //JOptionPane.showMessageDialog(null, message);
     }
 }

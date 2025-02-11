@@ -49,8 +49,10 @@ public class Calculator {
         if (initialInvestment <= 0){
             throw new IllegalArgumentException("Initial Investment must be greater than 0");
         }
-    }    private void validatemonthlyContribution(double monthlyContribution){
-        if (monthlyContribution <= 0){
+    }
+
+    private void validatemonthlyContribution(double monthlyContribution){
+        if (monthlyContribution < 0){
             throw new IllegalArgumentException("Monthly Contribution must be greater than 0");
         }
     }

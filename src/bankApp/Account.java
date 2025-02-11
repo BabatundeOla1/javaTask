@@ -14,7 +14,7 @@ public class Account {
     }
 
     public String getAccountNumber() {
-        return this.number;
+        return "001" + this.number;
     }
 
     public int getBalance(String pin) {

@@ -9,14 +9,20 @@ public class InterestCalculator {
     }
 
     public static void compoundInterestCalculator(){
-        Calculator compoundInterest = new Calculator();
-        double initialInvestment = convertInputToDouble("Enter Initail Investment Amount: ");
-        double monthlyContribution = convertInputToDouble("Enter Amount To Be Contributed Monthly: ");
-        int lengthOfTimeInYear = convertInputToInteger("Enter Length Of Time In Year: ");
-        double interestRateEstimate = convertInputToDouble("Enter Interest Rate Estimate: ");
-        int compoundFrequency = convertInputToInteger("Enter Times Per Year That Interest Will Be Compounded: ");
-        double result = compoundInterest.futureValueInvestment(initialInvestment, monthlyContribution, lengthOfTimeInYear, interestRateEstimate, compoundFrequency);
-        display(String.format("The final amount after %d years with $%,.2f contributions is $%,.2f", lengthOfTimeInYear, monthlyContribution, result));
+        try{
+            Calculator compoundInterest = new Calculator();
+            double initialInvestment = convertInputToDouble("Enter Initail Investment Amount: ");
+            double monthlyContribution = convertInputToDouble("Enter Amount To Be Contributed Monthly: ");
+            int lengthOfTimeInYear = convertInputToInteger("Enter Length Of Time In Year: ");
+            double interestRateEstimate = convertInputToDouble("Enter Interest Rate Estimate: ");
+            int compoundFrequency = convertInputToInteger("Enter Times Per Year That Interest Will Be Compounded: ");
+            double result = compoundInterest.futureValueInvestment(initialInvestment, monthlyContribution, lengthOfTimeInYear, interestRateEstimate, compoundFrequency);
+            display(String.format("The final amount after %d years with $%,.2f contributions is $%,.2f", lengthOfTimeInYear, monthlyContribution, result));
+        }
+
+        catch(IllegalArgumentException error){
+            display(error.getMessage());
+        }
     }
 
     private static String input(String message){

@@ -6,7 +6,10 @@ public class Candidate {
     private String name;
     private String CandidateID;
     private int countVote;
+
+
     public Candidate(String name, String userID){
+        validatName(name);
         this.name = name;
         this.CandidateID = userID;
         this.countVote = 0;
@@ -33,6 +36,10 @@ public class Candidate {
     private void validatName(String name){
         if(name.matches(".*\\d.*")){
             throw new IllegalArgumentException("Invalid Name");
+        }
+
+        if(name.isBlank()){
+            throw new IllegalArgumentException("Name can not be blank");
         }
     }
 

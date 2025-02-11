@@ -22,34 +22,47 @@ public class Election {
                             Select an Option:
                         ==============================
                 """;
+
         display(mainMain);
         String userOption = input("Enter option: ");
         switch (userOption){
-            case "1":
+            case "1"->
                 registerVoter();
-            case "2":
+            case "2"->
                 registerCandidate();
-            case "3":
+            case "3"->
                 login();
-            default:
+            default->
                 displayMenu();
         }
     }
 
     private static void registerVoter(){
-        String name = input("Enter name: ");
-        int age = Integer.parseInt(input("Enter age: "));
-        String password = input("Enter password: ");
-        Voter voters = inec.voterRegistration(age,name,password);
-        display("Account created successfully!!" + "\n" + name  + " Your I.D is " + voters.getUserID());
-        displayMenu();
+        try{
+            String name = input("Enter name: ");
+            int age = Integer.parseInt(input("Enter age(Age should be 18 and above): "));
+            String password = input("Enter password(Password length should be atleast 8): ");
+            Voter voters = inec.voterRegistration(age,name,password);
+            display("Account created successfully!!" + "\n" + name  + " Your I.D is " + voters.getUserID());
+            displayMenu();
+        }
+        catch(IllegalArgumentException error){
+            display(error.getMessage());
+            //displayMenu();
+        }
     }
 
     private static void registerCandidate(){
-        String name = input("Enter name: ");
-        Candidate candidates = inec.candidateRegistration(name);
-        display("Account created successfully!!" +  "\n" + name + " Your I.D is " + candidates.getCandidateID());
-        displayMenu();
+        try{
+            String name = input("Enter name: ");
+            Candidate candidates = inec.candidateRegistration(name);
+            display("Account created successfully!!" +  "\n" + name + " Your I.D is " + candidates.getCandidateID());
+            displayMenu();
+        }
+        catch(IllegalArgumentException error){
+            display(error.getMessage());
+            displayMenu();
+        }
     }
 
     public static void login(){
@@ -63,7 +76,7 @@ public class Election {
                         ==============================
                         1 -> Voter Login
                         2 -> Candidate Login
-                        3 -> Exit
+                        3 -> Main Menu
                         ==============================
                             Select an Option:
                         ==============================
@@ -71,11 +84,11 @@ public class Election {
         display(loginMenu);
         String userOption = input("Enter option: ");
         switch (userOption){
-            case "1" :
+            case "1" ->
                 voterLogin();
-            case "2":
+            case "2"->
                 candidateLogin();
-            case "3":
+            case "3"->
                 displayMenu();
         }
     }
@@ -105,14 +118,16 @@ public class Election {
             boolean validateVoterPassword = voter.getPassword().equals(voterPassword);
             if(validateVoter && validateVoterPassword){
                 display("Login Successful.");
+                voterMenu();
             }
             else {
                 display("Invalid Login details.");
             }
         }catch (IllegalArgumentException error){
             display("Voter not found. Login failed.");
+            loginMenu();
         }
-        voterMenu();
+
     }
 
     public static void voterMenu(){
@@ -130,11 +145,11 @@ public class Election {
         display(voterMenu);
         String voterOption = input("Enter option: ");
         switch (voterOption){
-            case "1" :
+            case "1" ->
                 castVote();
-            case "2":
+            case "2"->
                 loginMenu();
-            default:
+            default->
                 displayMenu();
         }
 
@@ -155,24 +170,23 @@ public class Election {
         display(candidateMenu);
         String voterOption = input("Enter option: ");
         switch (voterOption){
-            case "1" :
+            case "1" ->
                 checkResult();
-            case "2":
+            case "2"->
                 loginMenu();
-            default:
+            default->
                 displayMenu();
         }
     }
 
     private static void checkResult() {
-        String candidateID = input("Enter candidate ID: ");
-        inec.displayResult(candidateID);
+        inec.displayResults();
     }
 
     private static void castVote() {
-        String votersID = input("Enter Voter's ID: ");
+//        String votersID = input("Enter Voter's ID: ");
         String candidateID = input("Enter Candidate's ID: ");
-        inec.castVote(votersID, candidateID);
+        inec.castVote(candidateID);
         display("VOTE CASTED!!!");
         voterMenu();
     }
